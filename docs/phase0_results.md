@@ -45,9 +45,9 @@ This document records what exists and what failed. It does not interpret results
   - Quantity: `qty` with `qtyUnitCode`. Codes per `data/raw/comtrade/QuantityUnits.json`: 5 = number of items, 8 = kg, -1 = not available.
   - Status: `isReported`.
 - **Flags observed.**
-  - Every Nigeria-reported record has `isReported = False`.
+  - [A6, 2026-11-05: corrected] Nigeria submitted an annual dataset to UN Comtrade for every year 2012-2025. In the Phase 0 sample (Nigeria-reported, partner World, 2018-2025), the records have `isReported = False`. Across all Nigeria- and China-reported records, `isReported = False` coincides with aggregate rows (`isAggregate = True`, for example partner World). The flag is not specific to Nigeria, and no official definition was found (`docs/phase2_mirror_check.md` §2).
   - Nigeria quantity is `qtyUnitCode = -1` (no quantity) for 850440, 850760, 854140, 854142 and 854143 in most years.
-  - China-reported records have `isReported = True` and quantities in items (code 5) for all codes.
+  - China-reported records in the Phase 0 sample (2018-2025) have `isReported = True` and quantities in items (code 5) for all codes.
   - `isNetWgtEstimated` is True on most Nigeria records and on several China records for 2018-2021.
 - **All-reporter mirror.** Each year returned 184-191 records from 56-68 reporters (`all_x_to_nga_n_reporters` in the mirror file). This is below the 500-record preview cap.
 

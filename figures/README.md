@@ -2,7 +2,7 @@
 
 ## Attribution
 
-Both figures show values derived from UN Comtrade:
+All figures show values derived from UN Comtrade:
 
 **Source: UN Comtrade.**
 
@@ -15,6 +15,8 @@ Panel values also use Ember, China Solar PV Exports (CC BY 4.0, https://ember-en
 |---|---|---|
 | `phase2_imports_by_product.png` | Imports to Nigeria, main series, 2012-2026 (2026 January-September), tonnes; panels also MW | `data/processed/rq1_imports.csv`; `docs/phase2_results.md` §1 |
 | `phase2_waste_by_product.png` | Annual waste 2013-2040: locked-in (solid) and continuing imports at the 2025 level (S10 scenario, dashed); 5th-95th percentile bands for lead-acid 850720 and inverters 850440 | `data/processed/rq2_waste_annual.csv`, `rq2_waste_annual_s10.csv`; `docs/phase2_results.md` §2 |
+| `phase3_recycling_gap.png` | RQ4: annual waste vs GIZ 2025 nameplate lead-acid capacity, and vs "no documented capacity" for lithium-ion, panels and inverters; both series | `data/processed/rq4_gap_leadacid.csv`, `rq4_gap_other.csv`; `docs/phase3_results.md` §2 |
+| `phase3_material_value.png` | RQ5: cumulative contained metal value 2013-2040, by metal, both series and both panel scenarios (World Bank prices, CC BY 4.0) | `data/processed/rq5_materials_cumulative.csv`; `docs/phase3_results.md` §3 |
 
 The locked-in series declines once the imported cohorts have retired, because it includes no future imports. The S10 series holds imports at the 2025 level for 2026-2040. It is a scenario, not a forecast.
 

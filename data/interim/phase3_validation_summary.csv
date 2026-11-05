@@ -1,0 +1,11 @@
+check,result,passed
+frozen parameters,parameters.json matches SHA-256 in plan §10.2,True
+RQ3 C2 = main series,waste arrays identical for every product and draw,True
+RQ3 C1 <= C2,"every product, year and draw",True
+RQ4 2025 lead-acid = Phase 2 inputs,max diff 0.000 t,True
+RQ4 capacity - waste arithmetic,max deviation 0.000 t (median of difference vs difference of median),True
+RQ5 recomputed from Phase 2 medians,worst deviation / tolerance = 0.250,True
+Silver USD/t conversion,32150.7466 troy oz per t,True
+"Mass bounds, lead",recoverable <= contained lead <= lead-acid waste (every year and draw),True
+Panel composition shares,"IRENA 2016 p.41 shares sum to 1.0005 (silver '<0.1%' on top of rounded shares); panel material masses equal waste x shares; reported, not corrected",True
+Rerun determinism (fixed seed),01c7f298cca2ac56 -> 01c7f298cca2ac56,True

@@ -49,7 +49,48 @@ Run: 2026-11-05. It follows `docs/analysis_plan.md` (A1-A5) and the frozen `data
 
 **S17 (panel MW).** Converting non-China panel mass with the IRENA reference panel instead of the Ember ratio gives 73.8-1,851.6 MW per year, against 72.9-1,903.8 MW in the main series (2017-2025). The largest difference is in 2025: 1,851.6 vs 1,903.8 MW (`rq1_imports.csv`, `s17_mw`).
 
+### Battery chemistry in imports (descriptive finding)
+
+These are partner-reported main-series values (all reporters' exports to Nigeria; **Source: UN Comtrade.**). File: `data/processed/rq1_battery_chemistry.csv`.
+
+| Year | Lead-acid 850720, t | Lithium-ion 850760, t | Li-ion / lead-acid (t) | Li-ion share of the two (t, %) | Lead-acid USD m | Li-ion USD m | Li-ion / lead-acid (USD) |
+|---|---|---|---|---|---|---|---|
+| 2012 | 7,455 | 28 | 0.004 | 0.4 | 38.3 | 3.3 | 0.087 |
+| 2013 | 12,462 | 171 | 0.014 | 1.4 | 58.4 | 18.0 | 0.307 |
+| 2014 | 15,892 | 217 | 0.014 | 1.3 | 71.1 | 21.3 | 0.300 |
+| 2015 | 21,557 | 464 | 0.022 | 2.1 | 86.2 | 36.6 | 0.425 |
+| 2016 | 19,395 | 341 | 0.018 | 1.7 | 72.0 | 23.5 | 0.327 |
+| 2017 | 12,604 | 417 | 0.033 | 3.2 | 51.6 | 28.4 | 0.550 |
+| 2018 | 15,979 | 605 | 0.038 | 3.6 | 67.3 | 37.8 | 0.561 |
+| 2019 | 19,205 | 626 | 0.033 | 3.2 | 74.7 | 35.7 | 0.478 |
+| 2020 | 27,402 | 3,597 | 0.131 | 11.6 | 90.5 | 41.2 | 0.455 |
+| 2021 | 29,089 | 4,102 | 0.141 | 12.4 | 115.7 | 57.8 | 0.500 |
+| 2022 | 24,215 | 6,195 | 0.256 | 20.4 | 110.9 | 139.3 | 1.256 |
+| 2023 | 24,025 | 10,365 | 0.431 | 30.1 | 103.1 | 193.6 | 1.878 |
+| 2024 | 26,733 | 26,854 | 1.005 | 50.1 | 95.2 | 315.5 | 3.314 |
+| 2025 | 16,322 | 50,980 | 3.123 | 75.7 | 56.3 | 487.9 | 8.673 |
+
+- By mass, lithium-ion imports first exceed lead-acid imports in **2024** (26,854 t vs 26,733 t). By value, they first exceed them in **2022** (USD 139.3 m vs 110.9 m).
+- In 2025 the lithium-ion to lead-acid ratio is **3.12 by mass** and **8.67 by value**.
+- Mass for 850760 in 2012-2017 is flagged as mostly estimated (V8; `docs/phase1b_results.md` §1.2).
+- Both codes cover all uses (plan §9 item 6). Starter batteries (850710) are excluded.
+
+**Mirror-gap verification.** See `docs/phase2_mirror_check.md`. It covers:
+
+- gaps in USD as well as in tonnes;
+- the meaning of `isReported` and Nigeria's data submission (Nigeria has a Comtrade dataset for every year 2012-2025; for Nigeria- and China-reported records, `isReported = False` co-occurs with `isAggregate = True`);
+- other accumulators (850780, 850790);
+- proposed wording.
+
 ### Nigeria-reported vs partner-reported (finding, not corrected)
+
+**Description for the study [A6]** (wording verified in `docs/phase2_mirror_check.md` §4; that check uses the same HS6 codes on both sides and gives USD as well as tonnes):
+
+> *Imports were taken from partner-reported trade (all reporters' exports to Nigeria; Source: UN Comtrade). Nigeria's own reported imports, which UN Comtrade holds for every year 2012-2025, differ from partner-reported values. Over 2012-2025 they are 61% lower in value and 45% lower in mass for lead-acid batteries (HS 850720), 75% lower in value and 80% lower in mass for lithium-ion batteries (HS 850760, 2015-2025), and 84% lower in value and 80% lower in mass for starter batteries (HS 850710). For static converters (HS 850440), Nigeria-reported values are 20% lower than partner-reported values, while Nigeria-reported mass is 3.5 times partner-reported mass. Nigeria's reported net weight for this code is flagged by UN Comtrade as estimated in every year from 2014. These differences are reported, not corrected. UN Comtrade lists differences in partner attribution, CIF and FOB valuation, timing, transit through third countries and classification among the general causes of such asymmetries.*
+
+> *Before 2015, Nigeria reported in HS2007, which has no separate code for lithium-ion accumulators (850760). Nigeria-reported imports of "other accumulators" (HS 850780) were USD 30.2 m in 2012 and USD 23.5 m in 2013, against USD 4.2 m and 1.3 m reported by partners. These are not included in the study's series.*
+
+The table below gives the Phase 2 tonnage gap. Here, Nigeria's 854140 for panels is scaled by f_c (2017-2021), as in the main series.
 
 - Gap = Nigeria-reported imports from World − partner-reported main series, in tonnes. The percentage is relative to partner-reported.
 - For panels, Nigeria's 854140 is scaled by the same f_c (2017-2021). Nigeria reported no net weight for 854143 in 2025, so that value is filled (plan §8).

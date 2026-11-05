@@ -88,7 +88,7 @@ def cohorts(product: str, variant: str = "main") -> dict[int, float]:
     for r in rows:
         y = int(r["year"])
         if product == "panels":
-            if variant in ("main", "S16", "S9", "S10", "S11"):
+            if variant in ("main", "S16", "S9", "S10", "S11", "C1"):
                 v = _num(r["main_kg"])
             elif variant == "S1":
                 v = _num(r["alt_nga_m_world_kg_solar"])
@@ -105,7 +105,7 @@ def cohorts(product: str, variant: str = "main") -> dict[int, float]:
             else:
                 raise ValueError(variant)
         else:
-            if variant in ("main", "S16", "S9", "S10", "S11", "S3_0", "S3_1", "S21"):
+            if variant in ("main", "S16", "S9", "S10", "S11", "S3_0", "S3_1", "S21", "C1"):
                 v = _num(r["main_kg"])
             elif variant == "S1":
                 v = _num(r["alt_nga_m_world_kg"])
@@ -121,6 +121,8 @@ def cohorts(product: str, variant: str = "main") -> dict[int, float]:
         level = out[2025]
         for y in range(2026, END_YEAR + 1):
             out[y] = level
+    if variant == "C1":  # RQ3 scenario C1: import cohorts up to and including 2021 (plan §5)
+        out = {y: v for y, v in out.items() if y <= 2021}
     if variant == "S11":  # exclude pre-2018 lead-in cohorts (plan §2.7)
         out = {y: v for y, v in out.items() if y >= 2018}
     return dict(sorted(out.items()))

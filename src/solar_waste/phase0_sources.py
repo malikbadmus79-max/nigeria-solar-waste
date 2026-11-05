@@ -26,7 +26,7 @@ SOURCES = [
         coverage_period="2018-2025 (2026: 0 records)", frequency="Annual",
         units="primaryValue/cifvalue USD; netWgt kg; qty with qtyUnitCode (5=items, 8=kg, -1=n/a)",
         product_detail="HS6: 854140 (2018-2021, H4), 854142/854143 (2022-2025, H6), 850710, 850720, 850760, 850440",
-        gaps="isReported=False on every Nigeria record; netWgt flagged estimated on most records; qty unit -1 (none) for most codes; no 2026 data",
+        gaps="netWgt flagged estimated on most records; qty unit -1 (none) for most codes; no 2026 data. isReported=False on these World-partner rows coincides with isAggregate=True; Nigeria submitted a dataset every year 2012-2025 (A6; docs/phase2_mirror_check.md §2)",
         licence="UN Comtrade terms of use (not reviewed in Phase 0)", status="ok",
         notes="classificationCode H4 for 2018-2021, H6 for 2022-2025",
     ),
@@ -48,7 +48,7 @@ SOURCES = [
         product_detail="Same HS6 codes as S01; H5 2018-2021, H6 2022-2025",
         gaps="netWgt flagged estimated for 2018-2021 on several codes; no 2026 data",
         licence="UN Comtrade terms of use (not reviewed)", status="ok",
-        notes="isReported=True; quantity in items available for all codes",
+        notes="isReported=True in 2018-2025 (False with isAggregate=True in 2015-2017); quantity in items available for all codes",
     ),
     dict(
         source_id="S04", source="UN Comtrade public preview API: all reporters' exports to Nigeria (mirror)",

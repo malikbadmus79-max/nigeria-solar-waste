@@ -61,7 +61,7 @@ No waste has been estimated. The parameter file is a draft and is **not frozen**
 - **Start years [§2.7].** The panel main series starts with the 2017 Ember cohort, so 2012-2016 have no main value. Battery and converter series start in 2012 (lead-in cohorts).
 - **2026 [§2.4].** There is no Comtrade data. Panels show Ember January-September 2026 only (China only), flagged `partial = True` and not annualised. Battery and converter series end in 2025.
 - **Missing weights [§8].** Missing or zero net weight is filled as value × the median kg/USD of the same code and year across all-reporter records, and flagged. The fill pool is also applied to the alternative columns.
-- **Mirror gap [§2.2].** The Nigeria vs partner difference is kept as columns and not reconciled.
+- **Mirror gap [§2.2].** The Nigeria vs partner difference is kept as columns and not reconciled. For how to describe it, see `docs/phase2_mirror_check.md` §4 (A6). Nigeria submitted an annual dataset to UN Comtrade for every year 2012-2025.
 
 **Main series as built** (thousand tonnes; MW for panels; from the files named; 2026 partial):
 

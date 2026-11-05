@@ -1,10 +1,10 @@
 # Analysis plan
 
 Project: *The solar boom's hidden bill: Nigeria's coming wave of solar panel and battery waste*
-Status: Phase 1a. Written 2026-11-05 before any modelling; amended 2026-11-05 (Amendments A1 and A2 before the freeze; A3 at the freeze; A4 after the freeze, publication terms only; A5 post-results, reporting change only). Parameters frozen 2026-11-05 (§10.2).
+Status: Phase 1a. Written 2026-11-05 before any modelling; amended 2026-11-05 (Amendments A1 and A2 before the freeze; A3 at the freeze; A4 after the freeze, publication terms only; A5 post-results, reporting change only; A6 post-results, wording only). Parameters frozen 2026-11-05 (§10.2).
 Inputs: `docs/phase0_results.md` (cited as "P0 §n") and `data/interim/phase0_sources.csv` (source IDs S01-S22).
 
-This plan fixes the questions, data choices, assumptions, uncertainty treatment, sensitivities and checks before any estimate is produced. Sections changed by an amendment are marked **[A1]** to **[A5]**. The original wording of each changed item is summarised in the Amendments section. Figures quoted here are inputs taken from sources, not results.
+This plan fixes the questions, data choices, assumptions, uncertainty treatment, sensitivities and checks before any estimate is produced. Sections changed by an amendment are marked **[A1]** to **[A6]**. The original wording of each changed item is summarised in the Amendments section. Figures quoted here are inputs taken from sources, not results.
 
 **Scope [A1].** The study covers solar and backup-power equipment: PV panels, lead-acid batteries other than starter batteries (850720), lithium-ion batteries (850760) and static converters (850440). Main results use the full traded volume of each code.
 
@@ -47,11 +47,11 @@ Reasons for the scope:
 
 Reasons:
 
-1. **Partner-reported data as the main source.**
-   - Every Nigeria-reported Comtrade record has `isReported = False`.
-   - Nigeria net weight is flagged as estimated on most records.
+1. **Partner-reported data as the main source [A6].**
+   - Nigeria net weight is flagged as estimated on most records (P0 §1a). For 850440 it is flagged in every year from 2014 (`docs/phase2_mirror_check.md` §1).
    - Nigeria quantity is missing (`qtyUnitCode = -1`) for most codes (P0 §1a).
-   - China-reported records have `isReported = True` and quantities in items (P0 §1a).
+   - China-reported records carry quantities in items (P0 §1a).
+   - Nigeria submitted an annual dataset to UN Comtrade for every year 2012-2025. On Nigeria-reported rows, `isReported = False` coincides with aggregate rows (`isAggregate = True`, for example partner World). It is not specific to Nigeria and is not a reason for the choice (`docs/phase2_mirror_check.md` §2).
 2. **All reporters rather than China alone.**
    - China is not the dominant origin for every code. For 850720 in 2025, China-reported exports to Nigeria were USD 14.5 m against USD 56.3 m from all reporters (`data/interim/phase0_comtrade_mirror.csv`, columns `chn_x_to_nga_usd`, `all_x_to_nga_usd`).
    - Using China alone would drop the other origins. China-only is kept as a sensitivity.
@@ -68,6 +68,11 @@ Reasons:
 - The mirror ratios are reported as a finding of RQ1, by code and year, with value and mass (P0 §1a; `data/interim/phase0_comtrade_mirror.csv`).
 - No adjustment, reconciliation or correction factor is applied to either side.
 - CIF/FOB differences and classification differences (H4 vs H5) are described alongside the table but not removed.
+- **[A6] Wording.** Wherever the gap is described, the study uses the wording verified in `docs/phase2_mirror_check.md` §4:
+
+  > *Imports were taken from partner-reported trade (all reporters' exports to Nigeria; Source: UN Comtrade). Nigeria's own reported imports, which UN Comtrade holds for every year 2012-2025, differ from partner-reported values. Over 2012-2025 they are 61% lower in value and 45% lower in mass for lead-acid batteries (HS 850720), 75% lower in value and 80% lower in mass for lithium-ion batteries (HS 850760, 2015-2025), and 84% lower in value and 80% lower in mass for starter batteries (HS 850710). For static converters (HS 850440), Nigeria-reported values are 20% lower than partner-reported values, while Nigeria-reported mass is 3.5 times partner-reported mass. Nigeria's reported net weight for this code is flagged by UN Comtrade as estimated in every year from 2014. These differences are reported, not corrected. UN Comtrade lists differences in partner attribution, CIF and FOB valuation, timing, transit through third countries and classification among the general causes of such asymmetries.*
+
+  > *Before 2015, Nigeria reported in HS2007, which has no separate code for lithium-ion accumulators (850760). Nigeria-reported imports of "other accumulators" (HS 850780) were USD 30.2 m in 2012 and USD 23.5 m in 2013, against USD 4.2 m and 1.3 m reported by partners. These are not included in the study's series.*
 
 ### 2.3 HS 2022 change (854140 → 854142 / 854143)
 
@@ -613,3 +618,19 @@ Decision by the project lead after Phase 2 results. **No frozen parameter or mod
 2. **RQ4 inputs.** Annual lead-acid waste in 2025 (850720, 850710 and their per-draw sum) is reported as an input to RQ4, with no comparison to capacity at this stage (`data/processed/rq2_rq4_leadacid_inputs.csv`).
 3. **Tracked outputs.** Phase 2 summary outputs (`data/processed/rq1_*.csv`, `rq2_*.csv`) and `figures/` are tracked. Per-draw outputs (`*_draws*`, `*.npy`, `*.npz`) stay ignored. The UN Comtrade attribution ("Source: UN Comtrade.", with licence URL) is added to `figures/README.md` and to the companion notes for the new files (§12).
 
+### A6 (2026-11-05, post-results; wording only)
+
+Decision by the project lead after the mirror-gap verification (`docs/phase2_mirror_check.md`). **No frozen parameter, model specification or result changed**: `data/processed/parameters.json` keeps the SHA-256 in §10.2.
+
+1. **Plan §2.1, reason 1.**
+   - Original: "Every Nigeria-reported Comtrade record has `isReported = False`", listed as a reason for using partner-reported data.
+   - New:
+     - Nigeria submitted an annual dataset to UN Comtrade for every year 2012-2025.
+     - On Nigeria-reported rows, `isReported = False` coincides with aggregate rows (`isAggregate = True`, for example partner World). It is not specific to Nigeria, and no official definition was found.
+     - The reasons for using partner-reported data are estimated net weights and missing quantities.
+2. **Plan §2.2.** The verified wording from `docs/phase2_mirror_check.md` §4 is adopted for every description of the Nigeria vs partner gap.
+3. **Other documents corrected:**
+   - `docs/phase0_results.md` §1a;
+   - the Phase 0 source-register entries S01 and S03 (`src/solar_waste/phase0_sources.py`, written to `data/interim/phase0_sources.csv`);
+   - the gap descriptions in `docs/phase1b_results.md`, `docs/phase2_results.md` and `docs/phase3_results.md`;
+   - the correction note in `docs/phase2_mirror_check.md`.

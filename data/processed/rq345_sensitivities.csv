@@ -1,0 +1,26 @@
+sensitivity,description,rq4_leadacid_2025_sum_median_t,rq5_cum_value_musd_regular,rq5_cum_lead_850720_t_regular,rq5_cum_value_musd_early,rq5_cum_lead_850720_t_early,rq4_leadacid_2025_sum_median_t_change_pct,rq5_cum_value_musd_regular_change_pct,rq5_cum_lead_850720_t_regular_change_pct,rq5_cum_value_musd_early_change_pct,rq5_cum_lead_850720_t_early_change_pct
+main,"locked-in, frozen main case",59330.3,471.36,170205.6,574.54,170205.6,0.0,0.0,0.0,0.0,0.0
+S12_silver0,Panel silver 0%,59330.3,448.57,170205.6,475.34,170205.6,0.0,-4.8,0.0,-17.3,0.0
+S12_silver01,Panel silver 0.1%,59330.3,494.15,170205.6,673.74,170205.6,0.0,4.8,0.0,17.3,0.0
+S12_2030,IRENA 2030 panel composition,59330.3,470.7,170205.6,571.66,170205.6,0.0,-0.1,0.0,-0.5,0.0
+S13,Lead content 65% (lead and lead oxide),59330.3,484.42,177013.8,587.6,177013.8,0.0,2.8,4.0,2.3,4.0
+S14,60-month mean prices,59330.3,454.84,170205.6,515.18,170205.6,0.0,-3.5,0.0,-10.3,0.0
+S1,"Imports from Nigeria-reported data (Comtrade, Nigeria as reporter)",16175.1,230.45,93645.0,293.43,93645.0,-72.7,-51.1,-45.0,-48.9,-45.0
+S2,Imports from China only (Ember panels; China-reported Comtrade for others),30272.1,295.28,81468.9,391.84,81468.9,-49.0,-37.4,-52.1,-31.8,-52.1
+S3_0,Non-China 854140 solar fraction 2017-2021 = 0,59330.3,470.57,170205.6,572.72,170205.6,0.0,-0.2,0.0,-0.3,0.0
+S3_1,Non-China 854140 solar fraction 2017-2021 = 1,59330.3,471.37,170205.6,574.56,170205.6,0.0,0.0,0.0,0.0,0.0
+S4c,"Panels short-life: T = 15, alpha = 2.4928 (unsourced)",59330.3,905.02,170205.6,905.02,170205.6,0.0,92.0,0.0,57.5,0.0
+S5a,"Lead-acid mu ~ U(6, 10) (IEA-PVPS T18)",52357.3,471.34,170197.3,574.52,170197.3,-11.8,-0.0,-0.0,-0.0,-0.0
+S5b,"Lead-acid mu ~ Triangular(3, 9, 15) (IRENA 2017)",50701.2,471.07,170051.6,574.24,170051.6,-14.5,-0.1,-0.1,-0.1,-0.1
+S5c,"Lithium-ion mu ~ Triangular(5, 12, 20) (IRENA 2017)",59330.3,480.29,170205.6,583.47,170205.6,0.0,1.9,0.0,1.6,0.0
+S6,Inverter mu fixed at 15 years (IEA-PVPS),59330.3,471.36,170205.6,574.54,170205.6,0.0,0.0,0.0,0.0,0.0
+S7_k2,"Weibull shape k = 2 (batteries, inverters)",53694.0,461.07,170134.5,564.25,170134.5,-9.5,-2.2,-0.0,-1.8,-0.0
+S7_k6,"Weibull shape k = 6 (batteries, inverters)",66220.9,487.57,170209.2,590.75,170209.2,11.6,3.4,0.0,2.8,0.0
+S9,Exclude the 2026 partial panel cohort,59330.3,467.22,170205.6,543.12,170205.6,0.0,-0.9,0.0,-5.5,0.0
+S10,"Imports held at the 2025 level, 2026-2040 (sensitivity only)",59330.3,900.38,287675.6,1078.23,287675.6,0.0,91.0,69.0,87.7,69.0
+S11,Exclude pre-2018 lead-in cohorts,58564.4,360.01,114356.2,461.67,114356.2,-1.3,-23.6,-32.8,-19.6,-32.8
+S15,Start-of-year import timing,61032.4,480.61,170168.6,588.02,170168.6,2.9,2.0,-0.0,2.3,-0.0
+S16,Missing net weight left unfilled,59280.3,465.85,167557.6,568.6,167557.6,-0.1,-1.2,-1.6,-1.0,-1.6
+S21,Add 2012-2016 panel cohorts (China 854140 x 2017 f_c; assumption),59330.3,478.17,170205.6,584.04,170205.6,0.0,1.4,0.0,1.7,0.0
+S22,"Lithium-ion mu ~ U(5, 13) (partly unsourced)",59330.3,500.96,170205.6,604.14,170205.6,0.0,6.3,0.0,5.2,0.0
+S23,Panel Weibull scale calibrated to IRENA stated points,59330.3,498.51,170205.6,585.74,170205.6,0.0,5.8,0.0,1.9,0.0
