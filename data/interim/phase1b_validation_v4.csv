@@ -1,0 +1,2 @@
+check,files,hash_before,hash_after,identical,note
+V4 partial rebuild,7,351706ca170ef92e7f1b12451b9501e8e7c3671ca8259e5f4723ddcc3d7ab714,351706ca170ef92e7f1b12451b9501e8e7c3671ca8259e5f4723ddcc3d7ab714,True,Monte Carlo not yet implemented; full V4 in Phase 2

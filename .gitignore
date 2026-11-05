@@ -4,6 +4,10 @@ data/raw/*
 *.pdf
 data/processed/*
 !data/processed/.gitkeep
+# Small derived outputs are tracked (Amendment A3)
+!data/processed/parameters.json
+!data/processed/imports_*.csv
+!data/processed/README.md
 
 # Python
 __pycache__/
@@ -20,3 +24,7 @@ Thumbs.db
 
 # Private extracts from restricted sources (not committed)
 data/interim/private/
+
+# Phase 1b record-level UN Comtrade extract (not tracked; see docs/analysis_plan.md §12, Amendment A4).
+# data/interim/phase0_comtrade_availability.csv is tracked under the small-extract exemption.
+data/interim/phase1b_comtrade_early_availability.csv

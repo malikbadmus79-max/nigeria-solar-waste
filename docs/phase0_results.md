@@ -5,6 +5,8 @@ Checks run: 2026-11-05. Plan: `docs/phase0_plan.md`. Source register: `data/inte
 
 This document records what exists and what failed. It does not interpret results. Page numbers are PDF page numbers. In IRENA 2016 and GIZ 2025 these match the printed page numbers. In the Battery Control Regulations, gazette page B(320+n) is PDF page n.
 
+> Trade values in this document derived from UN Comtrade: **Source: UN Comtrade.** Licence: https://comtrade.un.org/licenseagreement.html. Ember values: CC BY 4.0.
+
 ---
 
 ## Summary of status

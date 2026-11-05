@@ -1,10 +1,10 @@
 # Analysis plan
 
 Project: *The solar boom's hidden bill: Nigeria's coming wave of solar panel and battery waste*
-Status: Phase 1a. Written 2026-11-05 before any modelling; amended 2026-11-05 (Amendments A1 and A2, before the freeze).
+Status: Phase 1a. Written 2026-11-05 before any modelling; amended 2026-11-05 (Amendments A1 and A2 before the freeze; A3 at the freeze; A4 after the freeze, publication terms only). Parameters frozen 2026-11-05 (§10.2).
 Inputs: `docs/phase0_results.md` (cited as "P0 §n") and `data/interim/phase0_sources.csv` (source IDs S01-S22).
 
-This plan fixes the questions, data choices, assumptions, uncertainty treatment, sensitivities and checks before any estimate is produced. Sections changed by an amendment are marked **[A1]** or **[A2]**. The original wording of each changed item is summarised in the Amendments section. Figures quoted here are inputs taken from sources, not results.
+This plan fixes the questions, data choices, assumptions, uncertainty treatment, sensitivities and checks before any estimate is produced. Sections changed by an amendment are marked **[A1]** to **[A4]**. The original wording of each changed item is summarised in the Amendments section. Figures quoted here are inputs taken from sources, not results.
 
 **Scope [A1].** The study covers solar and backup-power equipment: PV panels, lead-acid batteries other than starter batteries (850720), lithium-ion batteries (850760) and static converters (850440). Main results use the full traded volume of each code.
 
@@ -112,7 +112,8 @@ Reasons:
 - **Phase 1b retrieval.** The same Comtrade queries will be retrieved for 2012-2017 (same endpoint, S01-S04).
   - Main series: if retrieved, these lead-in cohorts are included.
   - Sensitivity S11: excludes them.
-  - Panels: Ember covers 2017 (P0 §1b). The 2017 cohort is included as a lead-in cohort.
+  - Panels: Ember covers 2017 (P0 §1b). The 2017 cohort is included as a lead-in cohort. The main panel series starts in 2017 (confirmed, A3).
+  - **[A3] Sensitivity S21.** Adds 2012-2016 panel cohorts: China-reported Comtrade 854140 mass × the 2017 f_c (0.9938), converted to MW at the 2017 Ember W/kg (13.30). It is labelled an assumption. Non-China origins for 2012-2016 are not added. Columns: `s21_kg`, `s21_mw`, `s21_basis` in `data/processed/imports_panels.csv`.
 - **Reporting.** Waste totals are reported for 2018-2040, with the cohorts that contribute to each year shown.
 
 ### 2.8 Future imports [A1]
@@ -175,6 +176,10 @@ Reasons:
 - **Two co-equal scenarios.** IRENA presents regular-loss and early-loss as scenarios. Both are reported with equal weight in headline tables, and neither is labelled the main case.
 - **Short-life scenario [A1].** No source located gives Weibull parameters for hot climates or low-quality modules. T = 15 (half the IRENA mean) with the early-loss shape is an unsourced assumption, labelled as such. Phase 1b searches for a sourced value (for example IEA-PVPS Task 13 reports). If one is found before the freeze, it replaces T = 15.
 - **Not varied in the Monte Carlo.** Panel lifetimes are fixed within each scenario.
+- **[A3] Published formula kept in the main case.** The main case uses F(t) = 1 − exp(−(t/T)^α) with T as the scale, as published. Phase 1b check V3a found that this form does not reproduce IRENA's stated supporting points (`docs/phase1b_results.md` §6). The mismatch is reported in results and not corrected.
+- **[A3] Sensitivity S23.** The Weibull scale is fitted by least squares to IRENA's stated cumulative-loss points, with α fixed, for each scenario separately (`src/solar_waste/calibration.py`). Points: early-loss 1% at 2 years, 2% at 10, 4% at 15 and 99.99% at 40; regular-loss 99.99% at 40 (IRENA 2016 Table 4 p.29; p.30). The 30-year average lifetime is a mean, not a CDF point, and is not fitted. Fitted values:
+  - early-loss: scale 28.9145 (α 2.4928), SSE 0.0324, implied mean 25.65 years;
+  - regular-loss: scale 26.4661 (α 5.3759), exact fit to the single point, implied mean 24.40 years.
 
 ### 4.3 Batteries and inverters [A1, A2]
 
@@ -216,7 +221,23 @@ None of these reflects off-grid or backup use in Nigeria, with frequent deep dis
 | Inverters (850440) | Fixed 15 years | IEA-PVPS LCA Guidelines 2020 p.10 (S11); IEA-PVPS T18-04:2025 Table 7 p.42 (S12) | S6 |
 | Lead-acid starter (850710), all-ULAB gap only | No source located; Phase 1b search; steady-state proxy if none (§6.1) | n/a | n/a |
 
-**Other lifetime sensitivity.** S5b: lead-acid μ ~ Triangular(3, 9, 15), IRENA 2017 Annex 1 p.124 (stationary flooded and VRLA calendar life 2016).
+**Other lifetime sensitivities.**
+
+- S5b: lead-acid μ ~ Triangular(3, 9, 15), IRENA 2017 Annex 1 p.124 (stationary flooded and VRLA calendar life 2016).
+- **[A3] S22:** lithium-ion μ ~ Uniform(5, 13) years. This is partly unsourced: the lower bound is IRENA 2017's minimum LFP calendar life (5 years, Annex 1 p.124) and the upper bound is the main value.
+
+**[A3] Outcome of the A2 search (frozen main values; `docs/phase1b_results.md` §2):**
+
+| Product | Main μ | Qualifying source(s) |
+|---|---|---|
+| Lead-acid 850720 | Uniform(2, 5) years | GIZ 2018 PDF p.15 (deep-cycle 2-5 y); ESMAP 2023 Table 3.3 PDF p.33 (4 y) |
+| Lithium-ion 850760 | 13 years (fixed; single qualifying value) | ESMAP 2023 Table 3.3 PDF p.33 |
+| Inverters 850440 | Uniform(5, 15) years | GIZ 2018 Table 2/1 PDF p.8 |
+| Starter lead-acid 850710 (all-ULAB gap only) | 5 years | Ogundele et al. 2020, J. Health & Pollution 10(27):200913 |
+
+- Off-grid evidence was found for all three main products, so S20 is not applied.
+- The generic, non-chemistry-specific ranges are excluded (confirmed, A3): GIZ 2018 Table 2/1 "batteries 2-6 years" and ESMAP 2019 "3-10 years".
+- Odigiri (2026, SSRN preprint) could not be read: HTTP 403 on retry, 2026-11-05. It is logged in the source register as a possible sensitivity source only.
 
 **Short-life scenario S20 [A2]** (labelled; used only for products with no off-grid evidence, alongside the A1 main case):
 
@@ -317,7 +338,9 @@ S20 is reported as a labelled scenario, not a forecast and not a main case. Wher
 - Lead content 62.5% (GIZ 2025 p.11, footnote 3). This is an assumed value, used because it is the only figure located.
 - A second source (for example the Basel ULAB technical guidelines) will be searched for in Phase 1b. If found, it becomes sensitivity S13. Without a second source, no range is invented.
 
-**Lithium-ion and inverters.** No composition source was located in Phase 0. Only mass is reported, unless Phase 1b sources a composition before the freeze.
+**Lithium-ion [A3].** The LFP composition is from Sphera for BCI/ILA (2023), Tables 3-2 and 3-5 (PDF pp.35-39): copper foil 9.1% and aluminium foil 5.6% of a 12.0 kg 12 V battery. It is used **only for copper and aluminium**. The study was commissioned by lead battery industry bodies and models automotive use in North America, and this is stated wherever the values are used.
+
+**Inverters [A3].** No composition source was located. Inverters are reported as **mass only, with no material value**.
 
 **Prices** (World Bank CMO monthly, S21, `data/raw/worldbank/CMO-Historical-Data-Monthly.xlsx`, sheet "Monthly Prices"):
 
@@ -357,7 +380,10 @@ S20 is reported as a labelled scenario, not a forecast and not a main case. Wher
 | S16 | Exclude records whose net weight is missing and filled (§8) | §8 |
 | S17 | Non-China panel MW from the IRENA reference panel (270 Wp per 18.6 kg) | §2.5 |
 | S18 | 850440 two-class mixture (secondary illustration only; only if unit masses are sourced) | §3 |
-| S20 [A2] | Short-life scenario: lead-acid 3, lithium-ion 5, inverters 7.5 years (only for products without off-grid evidence) | §4.3 |
+| S20 [A2] | Short-life scenario: lead-acid 3, lithium-ion 5, inverters 7.5 years (only for products without off-grid evidence). Not applied (A3) | §4.3 |
+| S21 [A3] | Add 2012-2016 panel cohorts: China-reported 854140 × 2017 f_c (0.9938), MW at 2017 Ember W/kg (assumption) | §2.7 |
+| S22 [A3] | Lithium-ion μ ~ Uniform(5, 13) years (partly unsourced; lower bound IRENA 2017 p.124) | §4.3 |
+| S23 [A3] | Panel Weibull scale fitted by least squares to IRENA stated points: early-loss 28.9145, regular-loss 26.4661 | §4.2 |
 
 - S8 and S19 are withdrawn (Amendment A1). S5a, S5c and S6 hold the A1 lifetime values. They are run as sensitivities only if Phase 1b off-grid evidence becomes the main case (Amendment A2).
 - Scenarios C1-C3 (§5) are comparison scenarios, not sensitivities.
@@ -379,7 +405,7 @@ S20 is reported as a labelled scenario, not a forecast and not a main case. Wher
 
 ---
 
-## 9. What the study cannot claim [A1, A2]
+## 9. What the study cannot claim [A1, A2, A3]
 
 1. **Health.** The study does not measure lead exposure or health outcomes. Ogijo and Ipetoro (P0 §5) are cited as documented context only.
 2. **Unrecorded goods.** Trade data miss goods that are smuggled, undeclared or misdeclared, including informal flows through neighbouring countries.
@@ -396,6 +422,7 @@ S20 is reported as a labelled scenario, not a forecast and not a main case. Wher
 13. **Locked-in waste.** The main series is waste from equipment imported to date. It is not a forecast of total future waste. S10 is a sensitivity, not a forecast.
 14. **Panel MW.** Panel capacity is an Ember estimate derived from price, not a measured quantity.
 15. **Project Volt.** The comparison with Project Volt is limited to its public headline figure and is not like for like (§5). The study does not assess Project Volt's methods or attribute differences to its internal assumptions.
+16. **Inverter and lithium-ion material value [A3].** Inverters carry no material value. Lithium-ion value covers copper and aluminium only, from an industry-commissioned automotive source.
 
 ---
 
@@ -430,13 +457,18 @@ V7 (the Project Volt import-window comparison) is withdrawn (Amendment A1).
   - the second lead-content source.
 - After the freeze, any change is an amendment, and the original specification is still reported.
 
-Freeze hash: *(to be recorded at the end of Phase 1b)*
+**Freeze [A3].** The parameters were frozen on 2026-11-05 after Amendment A3.
+
+- File: `data/processed/parameters.json`.
+- SHA-256: `54162d40ceea17b7938f3c8238ed9030ad31b3e88230293d2f88144c9be73b08`.
+- Data: downloads of 2026-11-05 (Phase 0 and Phase 1b, logged in `data/interim/phase0_sources.csv`).
+- Any later change to the file is an amendment and must record the new hash next to this one.
 
 ### 10.3 Outputs by phase
 
 | Phase | Content | Outputs |
 |---|---|---|
-| 1b | Data assembly and evidence searches (2012-2017 Comtrade; GACC cells check; solar-share and composition evidence; off-grid, backup and tropical lifetime evidence (§4.3); Project Volt headline secondary source; Tenth Schedule and fee schedule of S.I. No. 11; e-waste regulations S.I. No. 79 of 2022); parameter freeze | `data/processed/imports_<product>.csv`; updated `data/interim/phase0_sources.csv`; parameter file and hash; `docs/phase1b_log.md` |
+| 1b | Data assembly and evidence searches (2012-2017 Comtrade; GACC cells check; solar-share and composition evidence; off-grid, backup and tropical lifetime evidence (§4.3); Project Volt headline secondary source; Tenth Schedule and fee schedule of S.I. No. 11; e-waste regulations S.I. No. 79 of 2022); parameter freeze | `data/processed/imports_<product>.csv`; updated `data/interim/phase0_sources.csv`; parameter file and hash; `docs/phase1b_results.md` |
 | 2 | RQ1 tables and the mirror finding; RQ2 locked-in waste with Monte Carlo; V1-V9 | `data/processed/imports_main.csv`, `waste_locked_in_mc_summary.csv`; `docs/phase2_results.md` |
 | 3 | RQ3 scenarios C1-C3 and the headline comparison; RQ4 gap; RQ5 material mass and value; sensitivities | `data/processed/rq3_scenarios.csv`, `rq4_gap.csv`, `rq5_materials.csv`, `sensitivities.csv`; `docs/phase3_results.md` |
 | 4 | RQ6 document review (§11) | `data/processed/rq6_requirements.csv`; `docs/phase4_results.md` |
@@ -468,6 +500,32 @@ Freeze hash: *(to be recorded at the end of Phase 1b)*
 - **EPRON scope.** EPRON's mandate falls under the e-waste regulations, not S.I. No. 11. Whether PV panels and inverters fall within S.I. No. 79 of 2022 is checked in Phase 1b before EPRON is coded.
 
 ---
+
+## 12. Data licences and publication [A3, A4]
+
+**UN Comtrade.**
+
+- **Terms.** The licence agreement (`https://comtrade.un.org/licenseagreement.html`, read 2026-11-05) restricts "copying, automated browsing or downloading, redistribution, publication, or commercial exploitation" without UN permission. The Help Center page "Re-dissemination of data" (`https://comtradewiki.azurewebsites.net/?p=893`, read 2026-11-05) states:
+  - "UN Comtrade data may be used internally for research, analysis, processing, modelling";
+  - re-dissemination means reuse "as-is, without any transformation";
+  - "renaming, sorting, filtering, pivoting or rounding" does not by itself transform data;
+  - a small-data exemption applies below 100,000 original records;
+  - attribution: "Source: UN Comtrade."
+- **What is published [A4].** Published under the small-extract exemption (fewer than 100,000 original records):
+  - aggregates across reporters (the main series in `data/processed/imports_*.csv`);
+  - single-reporter annual values (China- and Nigeria-reported) for 7 HS codes, in `imports_*.csv` and the mirror table `data/interim/phase0_comtrade_mirror.csv`;
+  - the record-level file `data/interim/phase0_comtrade_availability.csv` (1,619 annual records, 2018-2025).
+- **What is not published.** `data/raw/comtrade/*.json` and `data/interim/phase1b_comtrade_early_availability.csv` (1,103 records, 2012-2017) are excluded from version control. The 2012-2017 values appear only through `imports_*.csv`.
+- **Attribution [A4].** The exact attribution **"Source: UN Comtrade."** with the licence URL https://comtrade.un.org/licenseagreement.html appears in:
+  - `README.md`;
+  - `data/interim/README.md` and `data/processed/README.md` (per-file companion notes; the CSV files have no comment header so that they stay machine-readable, and `parameters.json` is frozen);
+  - the header notes of `docs/phase0_results.md` and `docs/phase1b_results.md`;
+  - this section.
+
+**Other sources.**
+
+- **Ember:** CC BY 4.0 (`https://ember-energy.org/creative-commons/`). Attribution: "Ember, China Solar PV Exports".
+- **World Bank commodity prices:** CC BY 4.0 (`https://data.worldbank.org/summary-terms-of-use`).
 
 ## Amendments
 
@@ -511,3 +569,34 @@ Requested by the project lead. No modelling had been run.
    - Project Volt values are removed from the A1 log and replaced by a neutral note.
    - The headline in §5 is reduced to the single p.12 figure, and the notice is paraphrased rather than quoted.
    - Phase 0 extracts are moved to `data/interim/private/project_volt_extracts.md`. That directory is added to `.gitignore`.
+
+### A3 (2026-11-05, at the freeze)
+
+Decisions by the project lead on the Phase 1b review items (`docs/phase1b_results.md` §8). No waste had been estimated.
+
+1. **Panels before 2017 (§2.7, §7).**
+   - The main series starts in 2017, as planned.
+   - Sensitivity S21 is added: China-reported 854140 for 2012-2016 × the 2017 f_c, labelled an assumption.
+   - The request quoted 0.968, but 0.968 is the 2018 f_c in `imports_panels.csv`. The stated rule (2017 f_c = 0.9938) is applied. At 0.968, the S21 masses would be about 2.6% lower.
+2. **Generic battery ranges (§4.3).** The exclusion of GIZ 2018 "2-6 y" and ESMAP 2019 "3-10 y" is confirmed.
+3. **Lithium-ion (§4.3, §7).**
+   - The main value stays at 13 years (ESMAP 2023).
+   - Sensitivity S22 is added: Uniform(5, 13), partly unsourced, with the lower bound from IRENA 2017 p.124.
+   - Odigiri (2026) was retried on SSRN and returned HTTP 403. It was not read, and its values are not used.
+4. **IRENA Weibull (§4.2, §7).**
+   - The main case keeps the published formula (T as scale), and the V3a mismatch is reported.
+   - Sensitivity S23 is added: the scale fitted by least squares to IRENA's stated points, with the fitted values recorded in §4.2 and in the parameter file.
+5. **LFP composition (§6.2).** Accepted, with a note that it is industry-commissioned. It is used only for copper and aluminium.
+6. **Inverters (§6.2, §9).** Mass only, with no material value.
+7. **Publication and licences (§12).**
+   - `.gitignore` now tracks `data/processed/parameters.json` and `data/processed/imports_*.csv`.
+   - Record-level Comtrade extracts are ignored. `data/interim/phase0_comtrade_availability.csv` was already committed in `768d41d`; removing it from the index needs `git rm --cached` by the project lead.
+   - The Comtrade terms of use were read and recorded. Ember is CC BY 4.0.
+8. **Freeze (§10.2).** The final parameter file is written and its SHA-256 hash recorded.
+
+### A4 (2026-11-05, after the freeze; publication terms only)
+
+Decision by the project lead. Frozen parameters unchanged: `data/processed/parameters.json` keeps the SHA-256 recorded in §10.2.
+
+1. `data/interim/phase0_comtrade_availability.csv` (1,619 records) and the single-reporter columns in published files are kept and published under the Comtrade small-extract exemption (§12). The `.gitignore` line that excluded the availability file is removed. The 2012-2017 record-level file stays excluded.
+2. The exact attribution "Source: UN Comtrade." with the licence URL is added to `README.md`, to companion notes `data/interim/README.md` and `data/processed/README.md` (now tracked), to the header notes of `docs/phase0_results.md` and `docs/phase1b_results.md`, and to §12.

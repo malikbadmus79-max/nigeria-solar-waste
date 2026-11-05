@@ -1,0 +1,2 @@
+check,rows_rebuilt,rows_stored,mismatched_cells,passed
+V5 mirror rebuilt from raw-derived records,47,47,0,True

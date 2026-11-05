@@ -1,0 +1,355 @@
+{
+  "meta": {
+    "status": "FROZEN 2026-11-05 (plan \u00a710.2, Amendment A3)",
+    "written": "2026-11-05",
+    "plan": "docs/analysis_plan.md including Amendments A1, A2 and A3",
+    "freeze_hash": "SHA-256 of this file is recorded in docs/analysis_plan.md \u00a710.2 (a file cannot contain its own hash)"
+  },
+  "imports": {
+    "files": "data/processed/imports_<product>.csv (built by src/solar_waste/imports.py)",
+    "main_source": {
+      "panels": "Ember China panels (S05) + all-reporter non-China Comtrade; 854140 non-China scaled by f_c (2017-2021)",
+      "850720": "all reporters' exports to Nigeria (Comtrade S04)",
+      "850710": "all reporters' exports to Nigeria (Comtrade S04); all-ULAB gap only",
+      "850760": "all reporters' exports to Nigeria (Comtrade S04)",
+      "850440": "all reporters' exports to Nigeria (Comtrade S04)",
+      "cells_854142": "excluded from main series; reported separately (imports_cells.csv)"
+    },
+    "cohort_years": {
+      "panels": "2017-2026 (2026 = Ember Jan-Sep, partial)",
+      "batteries_converters": "2012-2025 (2012-2017 lead-in, plan \u00a72.7)"
+    },
+    "mass_fill_rule": "missing/zero netWgt filled as value x median kg/USD of same code-year across all-reporter records (plan \u00a78)",
+    "data_freeze": "downloads of 2026-11-05",
+    "S21_panels_2012_2016": {
+      "rule": "China-reported Comtrade 854140 kg x 2017 f_c; MW at 2017 Ember W/kg",
+      "f_c_2017": 0.993829,
+      "w_per_kg_2017": 13.3,
+      "label": "assumption (Amendment A3)",
+      "note": "request text quoted 0.968, which is the 2018 f_c (imports_panels.csv); the stated rule (2017 f_c) is applied",
+      "columns": "imports_panels.csv: s21_kg, s21_mw, s21_basis"
+    }
+  },
+  "data_licences": {
+    "comtrade": "UN Comtrade data used internally for research; published outputs contain annual values derived from Comtrade (aggregates across reporters, plus single-reporter annual values for 7 HS codes), with attribution 'Source: UN Comtrade'; record-level downloads are not published (Help Center, Re-dissemination of data, https://comtradewiki.azurewebsites.net/?p=893; licence https://comtrade.un.org/licenseagreement.html)",
+    "ember": "CC BY 4.0 (https://ember-energy.org/creative-commons/)",
+    "world_bank_prices": "CC BY 4.0 (https://data.worldbank.org/summary-terms-of-use)"
+  },
+  "scope_share": {
+    "850720": 1.0,
+    "850760": 1.0,
+    "850440": 1.0,
+    "850710_main": 0.0,
+    "850710_all_ULAB_gap": 1.0,
+    "secondary_solar_share": null,
+    "secondary_solar_share_note": "No sourced product-level solar share found in Phase 1b; secondary illustration not produced (plan \u00a73, A1)"
+  },
+  "lifetimes": {
+    "panels": {
+      "distribution": "Weibull F(t)=1-exp(-(t/T)^alpha)",
+      "regular_loss": {
+        "T": 30,
+        "alpha": 5.3759,
+        "source": "IRENA & IEA-PVPS 2016 (S09) pp.29-30, Table 5"
+      },
+      "early_loss": {
+        "T": 30,
+        "alpha": 2.4928,
+        "source": "IRENA & IEA-PVPS 2016 (S09) p.30, Table 5"
+      },
+      "S4c_short_life": {
+        "T": 15,
+        "alpha": 2.4928,
+        "source": "unsourced assumption (plan \u00a74.2)"
+      },
+      "S23_calibrated_scale": {
+        "early_loss": {
+          "alpha": 2.4928,
+          "fitted_scale": 28.9145,
+          "sse": 0.03236498577263262,
+          "fitted_F": {
+            "2": 0.001282,
+            "10": 0.068427,
+            "15": 0.176964,
+            "40": 0.894143
+          },
+          "stated_F": {
+            "2": 0.01,
+            "10": 0.02,
+            "15": 0.04,
+            "40": 0.9999
+          },
+          "implied_mean_years": 25.653
+        },
+        "regular_loss": {
+          "alpha": 5.3759,
+          "fitted_scale": 26.4661,
+          "sse": 4.930380657631324e-32,
+          "fitted_F": {
+            "40": 0.9999
+          },
+          "stated_F": {
+            "40": 0.9999
+          },
+          "implied_mean_years": 24.402
+        },
+        "method": "least-squares fit of scale to IRENA stated cumulative-loss points, alpha fixed (Amendment A3; src/solar_waste/calibration.py)",
+        "points_source": "IRENA & IEA-PVPS 2016 Table 4 p.29 and p.30"
+      }
+    },
+    "batteries_inverters_distribution": {
+      "form": "Weibull, scale = mu / Gamma(1 + 1/k)",
+      "k": 3.5,
+      "k_source": "unsourced assumption (plan \u00a74.3)",
+      "S7_k": [
+        2,
+        6
+      ]
+    },
+    "850720_lead_acid": {
+      "main_mu": {
+        "dist": "uniform",
+        "low": 2,
+        "high": 5
+      },
+      "main_basis": "A2 rule: min/max of qualifying chemistry-specific off-grid values",
+      "qualifying_values": [
+        {
+          "value_years": "2-5",
+          "context": "deep-cycle LABs in solar power applications (SHS)",
+          "source": "GIZ 2018, End-of-Life Management of Batteries in the Off-Grid Solar Sector, PDF p.15 (printed p.13)"
+        },
+        {
+          "value_years": 4,
+          "context": "lead acid in mini grids, 1 cycle/day, 50% DOD, LCOS assumption",
+          "source": "ESMAP 2023, Energy Storage for Mini Grids, Table 3.3, PDF p.33 (printed p.17)"
+        }
+      ],
+      "S5a": {
+        "dist": "uniform",
+        "low": 6,
+        "high": 10,
+        "source": "IEA-PVPS T18-04:2025 p.14 (former A1 main)"
+      },
+      "S5b": {
+        "dist": "triangular",
+        "low": 3,
+        "mode": 9,
+        "high": 15,
+        "source": "IRENA 2017 Annex 1 p.124"
+      }
+    },
+    "850760_lithium_ion": {
+      "main_mu": {
+        "dist": "fixed",
+        "value": 13
+      },
+      "main_basis": "A2 rule: single qualifying value -> fixed",
+      "qualifying_values": [
+        {
+          "value_years": 13,
+          "context": "Li-ion LFP in mini grids, 1 cycle/day, 90% DOD, LCOS assumption",
+          "source": "ESMAP 2023, Energy Storage for Mini Grids, Table 3.3, PDF p.33 (printed p.17)"
+        }
+      ],
+      "S5c": {
+        "dist": "triangular",
+        "low": 5,
+        "mode": 12,
+        "high": 20,
+        "source": "IRENA 2017 Annex 1 p.124 (former A1 main)"
+      },
+      "S22": {
+        "dist": "uniform",
+        "low": 5,
+        "high": 13,
+        "source": "partly unsourced (Amendment A3): lower bound = IRENA 2017 Annex 1 p.124 minimum LFP calendar life (5 y, 2016); upper bound = ESMAP 2023 main value"
+      }
+    },
+    "850440_inverters": {
+      "main_mu": {
+        "dist": "uniform",
+        "low": 5,
+        "high": 15
+      },
+      "main_basis": "A2 rule: single qualifying source reporting a range -> range used",
+      "qualifying_values": [
+        {
+          "value_years": "5-15",
+          "context": "control devices (charge controller, inverter) in off-grid solar installations",
+          "source": "GIZ 2018, Table 2/1, PDF p.8 (printed p.6)"
+        }
+      ],
+      "S6": {
+        "dist": "fixed",
+        "value": 15,
+        "source": "IEA-PVPS LCA Guidelines 2020 p.10; IEA-PVPS T18-04:2025 Table 7 p.42 (former A1 main)"
+      }
+    },
+    "850710_starter_lead_acid": {
+      "main_mu": {
+        "dist": "fixed",
+        "value": 5
+      },
+      "source": "Ogundele, Ogundiran, Babayemi, Jha 2020, J. Health & Pollution 10(27):200913, doi 10.5696/2156-9614-10.27.200913 (survey of Nigerian vehicle battery users: 25% 3 y, 59% 5 y, 16% 7 y; average 5 y)",
+      "sensitivity_empirical": {
+        "3": 0.25,
+        "5": 0.59,
+        "7": 0.16
+      },
+      "use": "all-ULAB recycling gap only (plan \u00a76.1)"
+    },
+    "S20_short_life": {
+      "applied": false,
+      "reason": "off-grid evidence found for 850720, 850760 and 850440 (A2 rule); S20 applies only where none is found",
+      "values_if_applied": {
+        "850720": 3,
+        "850760": 5,
+        "850440": 7.5
+      }
+    }
+  },
+  "monte_carlo": {
+    "draws": 10000,
+    "seed": 20261105,
+    "rng": "numpy.random.default_rng",
+    "sampled": [
+      "850720 mu ~ U(2, 5)",
+      "850440 mu ~ U(5, 15)"
+    ],
+    "fixed": [
+      "850760 mu = 13",
+      "850710 mu = 5",
+      "panel scenario parameters",
+      "k = 3.5",
+      "shares = 1.0"
+    ],
+    "sensitivity_runs_sampled": [
+      "S22: 850760 mu ~ U(5, 13)"
+    ],
+    "timing": "mid-year (S15: start of year)",
+    "report": "median and 5th-95th percentile"
+  },
+  "conversions": {
+    "panel_mass_per_watt_reference": {
+      "wp": 270,
+      "kg": 18.6,
+      "w_per_kg": 14.516,
+      "source": "IRENA & IEA-PVPS 2016 p.41"
+    },
+    "non_china_panel_mw": "same-year Ember China W/kg (main); IRENA reference (S17)"
+  },
+  "composition": {
+    "panels_c_si": {
+      "glass": 0.76,
+      "polymer": 0.1,
+      "aluminium": 0.08,
+      "silicon": 0.05,
+      "copper": 0.01,
+      "silver": 0.0005,
+      "silver_S12": [
+        0.0,
+        0.001
+      ],
+      "source": "IRENA & IEA-PVPS 2016 p.41 (silver 'less than 0.1%')",
+      "S12_2030": {
+        "glass": 0.8,
+        "silicon": 0.03,
+        "aluminium": 0.07,
+        "source": "IRENA & IEA-PVPS 2016 p.41"
+      }
+    },
+    "lead_acid": {
+      "lead_main": 0.625,
+      "lead_source": "GIZ 2025 ProBaMet p.11 Table 2-1 fn 3 (assumed)",
+      "S13_lead_and_lead_oxide": 0.65,
+      "S13_source": "GIZ 2018 PDF p.15 (printed p.13): 'Around 65 % of the weight ... is lead and lead-oxide'",
+      "sulfuric_acid": "10-15% (GIZ 2018 PDF p.15)"
+    },
+    "lithium_ion_lfp": {
+      "copper_foil": 0.0908,
+      "aluminium_cathode_foil": 0.0558,
+      "graphite": 0.0842,
+      "lfp_cathode": 0.19,
+      "basis_kg": {
+        "battery_total": 12.0,
+        "copper_foil": 1.09,
+        "aluminium_foil": 0.67,
+        "graphite": 1.01,
+        "LFP": 2.28
+      },
+      "source": "Sphera for BCI/ILA 2023, Comparative LCA of Lead and LFP Batteries (12 V automotive LFP), Table 3-2 PDF p.35-36 and Table 3-5 PDF p.39",
+      "caveat": "12 V automotive pack, North American modelling, industry-commissioned (lead battery bodies); other components not attributable from extracted table",
+      "use": "copper and aluminium only (Amendment A3); graphite and LFP listed for reference, not valued"
+    },
+    "inverters": null,
+    "inverters_note": "no composition source located; inverters reported as mass only, no material value (plan \u00a76.2, Amendment A3)"
+  },
+  "recovery_rates": {
+    "lead_industrial": 0.9,
+    "lead_informal": [
+      0.5,
+      0.6
+    ],
+    "source": "GIZ 2025 ProBaMet p.11 (citing Wilson and Manhart 2021)"
+  },
+  "prices": {
+    "aluminium": {
+      "unit": "USD/mt",
+      "main_12m_mean": 3228.0,
+      "main_window": "2025M11-2026M10",
+      "s14_60m_mean": 2641.85,
+      "s14_window": "2021M11-2026M10",
+      "source": "World Bank CMO monthly, data/raw/worldbank/CMO-Historical-Data-Monthly.xlsx, sheet 'Monthly Prices', column BK"
+    },
+    "copper": {
+      "unit": "USD/mt",
+      "main_12m_mean": 13165.5,
+      "main_window": "2025M11-2026M10",
+      "s14_60m_mean": 9858.22,
+      "s14_window": "2021M11-2026M10",
+      "source": "World Bank CMO monthly, data/raw/worldbank/CMO-Historical-Data-Monthly.xlsx, sheet 'Monthly Prices', column BM"
+    },
+    "lead": {
+      "unit": "USD/mt",
+      "main_12m_mean": 1918.75,
+      "main_window": "2025M11-2026M10",
+      "s14_60m_mean": 2058.9,
+      "s14_window": "2021M11-2026M10",
+      "source": "World Bank CMO monthly, data/raw/worldbank/CMO-Historical-Data-Monthly.xlsx, sheet 'Monthly Prices', column BN"
+    },
+    "silver": {
+      "unit": "USD/troy oz",
+      "main_12m_mean": 69.25,
+      "main_window": "2025M11-2026M10",
+      "s14_60m_mean": 35.4,
+      "s14_window": "2021M11-2026M10",
+      "source": "World Bank CMO monthly, data/raw/worldbank/CMO-Historical-Data-Monthly.xlsx, sheet 'Monthly Prices', column BT"
+    }
+  },
+  "recycling_capacity": {
+    "ulab_input_t_per_year": 182690,
+    "lead_output_t_per_year": 114180,
+    "lead_output_t_per_month": 10380,
+    "source": "GIZ 2025 ProBaMet Table 2-1, p.11 (nameplate; one month downtime; 62.5% lead content)",
+    "pv_lithium_inverter": "no documented capacity (Phase 0 \u00a74; Phase 1b search)"
+  },
+  "benchmarks": {
+    "gem2024_nigeria": {
+      "ewaste_generated_million_kg": 497,
+      "kg_per_capita": 2.3,
+      "year": 2022,
+      "source": "Global E-waste Monitor 2024, Annex 2, PDF p.129 (also p.62: 500 rounded)"
+    },
+    "gogla_2025_nigeria_sek_units": {
+      "value": 1125194,
+      "share_of_west_africa": 0.78,
+      "source": "GOGLA Global Off-Grid Solar Market Report 2026 (2025 data), PDF p.41"
+    },
+    "project_volt_headline_kg_2040_cumulative": {
+      "value": 60300000.0,
+      "source": "report p.12",
+      "secondary": "CJID, 26 Jul 2022, https://thecjid.org/how-nigerias-e-waste-collectors-struggle-with-solar-waste-amidst-the-governments-nonchalance/"
+    }
+  }
+}

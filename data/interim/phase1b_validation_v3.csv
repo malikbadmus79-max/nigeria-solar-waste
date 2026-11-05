@@ -1,0 +1,8 @@
+check,item,stated,recomputed,difference,note
+"V3a IRENA Weibull F(t), T=30",early t=2,0.01,0.0011694607231729215,-0.008830539276827079,0.5% transport/installation + 0.5% within 2 years
+"V3a IRENA Weibull F(t), T=30",early t=10,0.02,0.06261338211055012,0.042613382110550116,2% after 10 years
+"V3a IRENA Weibull F(t), T=30",early t=15,0.04,0.16277391607759106,0.12277391607759106,4% after 15 years
+"V3a IRENA Weibull F(t), T=30",early t=40,0.9999,0.871078729693175,-0.128821270306825,99.99% after 40 years
+"V3a IRENA Weibull F(t), T=30",regular t=40,0.9999,0.9908613615217693,-0.00903863847823072,99.99% after 40 years
+V3b GIZ Table 2-1,monthly x 11 vs annual lead output,114180.0,114180.0,0.0,one month downtime (fn 2)
+V3b GIZ Table 2-1,annual lead output / 0.625 vs ULAB input,182690.0,182688.0,-2.0,62.5% lead content (fn 3)
