@@ -1,0 +1,22 @@
+# Raw downloads and PDFs are not committed
+data/raw/*
+!data/raw/.gitkeep
+*.pdf
+data/processed/*
+!data/processed/.gitkeep
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.ipynb_checkpoints/
+.pytest_cache/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Private extracts from restricted sources (not committed)
+data/interim/private/
