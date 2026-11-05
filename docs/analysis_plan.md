@@ -1,10 +1,10 @@
 # Analysis plan
 
 Project: *The solar boom's hidden bill: Nigeria's coming wave of solar panel and battery waste*
-Status: Phase 1a. Written 2026-11-05 before any modelling; amended 2026-11-05 (Amendments A1 and A2 before the freeze; A3 at the freeze; A4 after the freeze, publication terms only; A5 post-results, reporting change only; A6 post-results, wording only). Parameters frozen 2026-11-05 (§10.2).
+Status: Phase 1a. Written 2026-11-05 before any modelling; amended 2026-11-05 (Amendments A1 and A2 before the freeze; A3 at the freeze; A4 after the freeze, publication terms only; A5 post-results, reporting change only; A6 post-results, wording only; A7 post-results, RQ6 coding clarification). Parameters frozen 2026-11-05 (§10.2).
 Inputs: `docs/phase0_results.md` (cited as "P0 §n") and `data/interim/phase0_sources.csv` (source IDs S01-S22).
 
-This plan fixes the questions, data choices, assumptions, uncertainty treatment, sensitivities and checks before any estimate is produced. Sections changed by an amendment are marked **[A1]** to **[A6]**. The original wording of each changed item is summarised in the Amendments section. Figures quoted here are inputs taken from sources, not results.
+This plan fixes the questions, data choices, assumptions, uncertainty treatment, sensitivities and checks before any estimate is produced. Sections changed by an amendment are marked **[A1]** to **[A7]**. The original wording of each changed item is summarised in the Amendments section. Figures quoted here are inputs taken from sources, not results.
 
 **Scope [A1].** The study covers solar and backup-power equipment: PV panels, lead-acid batteries other than starter batteries (850720), lithium-ion batteries (850760) and static converters (850440). Main results use the full traded volume of each code.
 
@@ -418,12 +418,12 @@ S20 is reported as a labelled scenario, not a forecast and not a main case. Wher
 4. **Domestic and second-hand goods.** Lead-acid batteries made in Nigeria (GIZ 2025 p.11), used imports, and products inside kits classified under other HS codes are not in the import series.
 5. **Cells.** Cells assembled into modules in Nigeria are excluded from the main series (§2.6).
 6. **Not solar-only.** Main results are full HS volumes. They are not solar-only. They include lead-acid batteries and inverters charged from the grid or generators, lithium-ion batteries in non-storage uses (850760), and chargers and power supplies (850440). The study does not claim any part of these volumes is attributable to solar unless a sourced share is shown as a secondary illustration (§3).
-7. **Lifetimes [A2].** These were not measured by the study. The main values are published off-grid, backup or tropical evidence where Phase 1b finds it. Otherwise they are general published values (IRENA, IEA-PVPS) with the short-life scenario S20, and the plan states that no off-grid evidence was found. Neither is Nigerian field measurement unless a qualifying Nigerian study is found.
+7. **Lifetimes [A2, A7].** These were not measured by the study. Phase 1b found published off-grid evidence for lead-acid batteries (GIZ 2018; ESMAP 2023), lithium-ion batteries (ESMAP 2023) and inverters (GIZ 2018), and these are the main values; S20 was therefore not applied. None of these is Nigerian field measurement. The only Nigerian lifetime study found (Ogundele et al. 2020) concerns vehicle starter batteries (850710).
 8. **Waste fate.** End-of-life arising is not collection. The study does not say where waste goes, how much is collected, or how much is recycled soundly.
 9. **Capacity.** Recycling capacity is nameplate. It is neither throughput nor a measure of environmental performance, and GIZ plant data are anonymised.
 10. **Value.** Material value is gross contained value at international prices, not net revenue to anyone in Nigeria.
 11. **Implementation.** For RQ6, the absence of a public report is not evidence that a requirement has not been implemented.
-12. **Early years.** Without pre-2018 cohorts (if Phase 1b retrieval fails), waste in the early years is understated.
+12. **Early years [A7].** Comtrade cohorts for 2012-2017 were retrieved in Phase 1b and are included for batteries and inverters. Equipment imported before 2012 is not included, and the panel series starts in 2017 (2012-2016 panels appear only in sensitivity S21). Waste arising in the early years from older equipment is therefore not counted.
 13. **Locked-in waste.** The main series is waste from equipment imported to date. It is not a forecast of total future waste. S10 is a sensitivity, not a forecast.
 14. **Panel MW.** Panel capacity is an Ember estimate derived from price, not a measured quantity.
 15. **Project Volt.** The comparison with Project Volt is limited to its public headline figure and is not like for like (§5). The study does not assess Project Volt's methods or attribute differences to its internal assumptions.
@@ -496,10 +496,12 @@ V7 (the Project Volt import-window comparison) is withdrawn (Amendment A1).
   - the Federal Ministry of Environment;
   - GIZ 2025;
   - Nigerian national press from 21 March 2024 (commencement) to the search date.
-- **Coding** of each requirement:
+- **Coding** of each requirement [A7]:
   - "public record of implementation found" (cited);
   - "public statement of intent only";
+  - "public record indicates not implemented": used only where a source states non-implementation explicitly (cited);
   - "no public record found".
+- **Enforcement column [A7].** A separate column, `enforcement_action` (yes/no, with source), records documented enforcement action on the duty. It is independent of the code.
 - **Fixed rule.** "No public record found" is not reported as non-compliance (§9, item 11).
 - **Deadline requirement.** The one-year registration deadline in Reg. 11(3) (from 21 March 2024) is coded against public evidence of registration figures, if any.
 - **EPRON scope.** EPRON's mandate falls under the e-waste regulations, not S.I. No. 11. Whether PV panels and inverters fall within S.I. No. 79 of 2022 is checked in Phase 1b before EPRON is coded.
@@ -634,3 +636,21 @@ Decision by the project lead after the mirror-gap verification (`docs/phase2_mir
    - the Phase 0 source-register entries S01 and S03 (`src/solar_waste/phase0_sources.py`, written to `data/interim/phase0_sources.csv`);
    - the gap descriptions in `docs/phase1b_results.md`, `docs/phase2_results.md` and `docs/phase3_results.md`;
    - the correction note in `docs/phase2_mirror_check.md`.
+
+### A7 (2026-11-05, post-results; RQ6 coding clarification and §9 wording)
+
+Decision by the project lead after Phase 4. **No frozen parameter or model result changed**: `data/processed/parameters.json` keeps the SHA-256 in §10.2, and RQ1-RQ5 outputs are unchanged.
+
+1. **§11 coding.**
+   - A fourth code, "public record indicates not implemented", is added. It is used only where a source states non-implementation explicitly.
+   - A separate `enforcement_action` column (yes/no, with source) is added.
+   - The rule that "no public record found" is not non-compliance is unchanged.
+2. **Recoding** (all 17 duties reviewed; `docs/phase4_results.md`):
+   - D11 (Reg. 48(1)(j), blood-lead testing): from "public record of implementation found" to "public record indicates not implemented". GIZ 2025 p.35 states that no such testing is conducted, and NESREA (2025-11-28) cites its absence. Enforcement action: yes.
+   - D12 (Schedules 13-14) and D13 (slag): from "public record of implementation found" to "public record indicates not implemented". NESREA (2025-11-28) states the violations. Enforcement action: yes.
+     - Scope: the evidence concerns the facilities sealed in Ogijo (NESREA, November 2025), not the sector as a whole.
+     - D11 keeps its sector-wide basis (GIZ 2025 p.35).
+   - D14 (Reg. 43, used-battery import prohibition): "no public record found" (unchanged; a recode proposed during A7 was reverted in the A7 follow-up). Note: cross-border inflows of used batteries are reported as illegal (Lead Battery Notes 2025; IDS 2016); this shows breaches, not a statement on implementation of the ban.
+   - All other duties keep their code. Their enforcement_action is "no".
+   - Resulting counts: 3 implementation found, 3 statement of intent only, 3 public record indicates not implemented, 8 no public record found; enforcement action documented for 3 duties.
+3. **§9 items 7 and 12.** The conditional wording is replaced with what Phase 1b found: off-grid lifetime evidence for lead-acid, lithium-ion and inverters; Comtrade cohorts for 2012-2017 retrieved.

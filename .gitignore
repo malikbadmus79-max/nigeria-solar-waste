@@ -16,6 +16,8 @@ data/processed/*
 !data/processed/rq4_*.csv
 !data/processed/rq5_*.csv
 !data/processed/rq345_*.csv
+!data/processed/rq6_*.csv
+!data/processed/import_growth_2021_2025.csv
 # Large per-draw Monte Carlo outputs are never tracked (none are written at present).
 data/processed/*_draws*
 *.npy

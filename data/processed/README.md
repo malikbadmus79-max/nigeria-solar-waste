@@ -31,6 +31,8 @@ These values are published under the small-extract exemption described in `docs/
 | `rq3_scenarios.csv` | Scenario cumulative waste (C1-C3), computed from Comtrade-derived cohorts | Ember (panels); Project Volt headline (report p.12) as a single reference figure |
 | `rq4_gap_leadacid.csv`, `rq4_gap_other.csv` | Annual waste vs documented capacity, computed from Comtrade-derived cohorts | GIZ 2025 capacity; Ember (panels) |
 | `rq5_materials_annual.csv`, `rq5_materials_cumulative.csv`, `rq5_informal_scenarios.csv`, `rq345_sensitivities.csv` | Material mass and value, computed from Comtrade-derived cohorts | IRENA 2016, GIZ 2025, Sphera/BCI 2023 composition; World Bank prices (CC BY 4.0); Ember (panels) |
+| `import_growth_2021_2025.csv` | Partner-reported panel and lithium-ion mass, 2021 and 2025, and ratios | Ember (CC BY 4.0): China's panels |
+| `rq6_regulation_review.csv` | No trade values (regulation review) | NESREA, ARBR, EPRON, GIZ 2025, Nigerian press, as cited per row |
 | `parameters.json` (frozen) | `imports.S21_panels_2012_2016.f_c_2017` (ratio of Ember to Comtrade China-reported mass) | IRENA, IEA-PVPS, ESMAP, GIZ, Ogundele et al. 2020, Sphera/BCI 2023, World Bank (CC BY 4.0), GEM 2024, GOGLA: as cited in the file |
 
 Tracking: `parameters.json`, `imports_*.csv`, `rq1_*.csv`, `rq2_*.csv` (A5) and `rq3_*`, `rq4_*`, `rq5_*`, `rq345_*` CSVs (Phase 3 follow-up) are tracked in git. Per-draw outputs are not.

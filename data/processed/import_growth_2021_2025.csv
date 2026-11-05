@@ -1,0 +1,3 @@
+product,description,mass_2021_t,mass_2025_t,ratio_2025_to_2021,source_file,attribution
+panels,PV panels (Ember China + all-reporter non-China),15441.4,101527.5,6.58,data/processed/imports_panels.csv (main_kg),Source: UN Comtrade; Ember (CC BY 4.0) for China's panels
+850760,Lithium-ion batteries (all reporters' exports to Nigeria),4101.6,50979.5,12.43,data/processed/imports_lithiumion_850760.csv (main_kg),Source: UN Comtrade; Ember (CC BY 4.0) for China's panels
