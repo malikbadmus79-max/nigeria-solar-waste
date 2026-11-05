@@ -1,0 +1,115 @@
+sensitivity,kind,description,product,cum_2013_2040_median_t,cum_p05_t,cum_p95_t,main_cum_median_t,change_pct,annual_2040_median_t,main_annual_2040_median_t,affects_product
+S1,imports,"Imports from Nigeria-reported data (Comtrade, Nigeria as reporter)",panels_regular,18220.1,18220.1,18220.1,20469.8,-11.0,4247.7,5288.9,True
+S1,imports,"Imports from Nigeria-reported data (Comtrade, Nigeria as reporter)",panels_early,60119.6,60119.6,60119.6,89112.7,-32.5,6926.6,11413.8,True
+S1,imports,"Imports from Nigeria-reported data (Comtrade, Nigeria as reporter)",850720,149832.1,149813.2,149835.0,272329.0,-45.0,0.0,0.0,True
+S1,imports,"Imports from Nigeria-reported data (Comtrade, Nigeria as reporter)",850760,16998.0,16998.0,16998.0,82883.4,-79.5,1337.0,7532.1,True
+S1,imports,"Imports from Nigeria-reported data (Comtrade, Nigeria as reporter)",850440,539262.7,475404.5,541249.1,151835.7,255.2,2392.0,1879.2,True
+S1,imports,"Imports from Nigeria-reported data (Comtrade, Nigeria as reporter)",850710,59903.3,59903.3,59903.3,305864.8,-80.4,0.0,0.0,True
+S2,imports,Imports from China only (Ember panels; China-reported Comtrade for others),panels_regular,19101.1,19101.1,19101.1,20469.8,-6.7,4938.2,5288.9,True
+S2,imports,Imports from China only (Ember panels; China-reported Comtrade for others),panels_early,83341.5,83341.5,83341.5,89112.7,-6.5,10689.4,11413.8,True
+S2,imports,Imports from China only (Ember panels; China-reported Comtrade for others),850720,130350.3,130336.1,130352.4,272329.0,-52.1,0.0,0.0,True
+S2,imports,Imports from China only (Ember panels; China-reported Comtrade for others),850760,80149.0,80149.0,80149.0,82883.4,-3.3,7380.0,7532.1,True
+S2,imports,Imports from China only (Ember panels; China-reported Comtrade for others),850440,127156.9,99513.0,128788.3,151835.7,-16.3,1781.3,1879.2,True
+S2,imports,Imports from China only (Ember panels; China-reported Comtrade for others),850710,157259.1,157259.1,157259.1,305864.8,-48.6,0.0,0.0,True
+S3_0,imports,Non-China 854140 solar fraction 2017-2021 = 0,panels_regular,19946.4,19946.4,19946.4,20469.8,-2.6,5179.3,5288.9,True
+S3_0,imports,Non-China 854140 solar fraction 2017-2021 = 0,panels_early,87901.4,87901.4,87901.4,89112.7,-1.4,11301.2,11413.8,True
+S3_0,imports,Non-China 854140 solar fraction 2017-2021 = 0,850720,272329.0,272303.3,272332.9,272329.0,0.0,0.0,0.0,False
+S3_0,imports,Non-China 854140 solar fraction 2017-2021 = 0,850760,82883.4,82883.4,82883.4,82883.4,0.0,7532.1,7532.1,False
+S3_0,imports,Non-China 854140 solar fraction 2017-2021 = 0,850440,151835.7,121895.5,153548.7,151835.7,0.0,1879.2,1879.2,False
+S3_0,imports,Non-China 854140 solar fraction 2017-2021 = 0,850710,305864.8,305864.8,305864.8,305864.8,0.0,0.0,0.0,False
+S3_1,imports,Non-China 854140 solar fraction 2017-2021 = 1,panels_regular,20476.6,20476.6,20476.6,20469.8,0.0,5290.3,5288.9,True
+S3_1,imports,Non-China 854140 solar fraction 2017-2021 = 1,panels_early,89128.4,89128.4,89128.4,89112.7,0.0,11415.2,11413.8,True
+S3_1,imports,Non-China 854140 solar fraction 2017-2021 = 1,850720,272329.0,272303.3,272332.9,272329.0,0.0,0.0,0.0,False
+S3_1,imports,Non-China 854140 solar fraction 2017-2021 = 1,850760,82883.4,82883.4,82883.4,82883.4,0.0,7532.1,7532.1,False
+S3_1,imports,Non-China 854140 solar fraction 2017-2021 = 1,850440,151835.7,121895.5,153548.7,151835.7,0.0,1879.2,1879.2,False
+S3_1,imports,Non-China 854140 solar fraction 2017-2021 = 1,850710,305864.8,305864.8,305864.8,305864.8,0.0,0.0,0.0,False
+S4c,life,"Panels short-life: T = 15, alpha = 2.4928 (unsourced)",panels_regular,308974.3,308974.3,308974.3,20469.8,1409.4,24593.5,5288.9,True
+S4c,life,"Panels short-life: T = 15, alpha = 2.4928 (unsourced)",panels_early,308974.3,308974.3,308974.3,89112.7,246.7,24593.5,11413.8,True
+S4c,life,"Panels short-life: T = 15, alpha = 2.4928 (unsourced)",850720,272329.0,272303.3,272332.9,272329.0,0.0,0.0,0.0,False
+S4c,life,"Panels short-life: T = 15, alpha = 2.4928 (unsourced)",850760,82883.4,82883.4,82883.4,82883.4,0.0,7532.1,7532.1,False
+S4c,life,"Panels short-life: T = 15, alpha = 2.4928 (unsourced)",850440,151835.7,121895.5,153548.7,151835.7,0.0,1879.2,1879.2,False
+S4c,life,"Panels short-life: T = 15, alpha = 2.4928 (unsourced)",850710,305864.8,305864.8,305864.8,305864.8,0.0,0.0,0.0,False
+S5a,life,"Lead-acid mu ~ U(6, 10) (IEA-PVPS T18)",panels_regular,20469.8,20469.8,20469.8,20469.8,0.0,5288.9,5288.9,False
+S5a,life,"Lead-acid mu ~ U(6, 10) (IEA-PVPS T18)",panels_early,89112.7,89112.7,89112.7,89112.7,0.0,11413.8,11413.8,False
+S5a,life,"Lead-acid mu ~ U(6, 10) (IEA-PVPS T18)",850720,272315.7,271273.4,272334.1,272329.0,-0.0,69.6,0.0,True
+S5a,life,"Lead-acid mu ~ U(6, 10) (IEA-PVPS T18)",850760,82883.4,82883.4,82883.4,82883.4,0.0,7532.1,7532.1,False
+S5a,life,"Lead-acid mu ~ U(6, 10) (IEA-PVPS T18)",850440,151835.7,121895.5,153548.7,151835.7,0.0,1879.2,1879.2,False
+S5a,life,"Lead-acid mu ~ U(6, 10) (IEA-PVPS T18)",850710,305864.8,305864.8,305864.8,305864.8,0.0,0.0,0.0,False
+S5b,life,"Lead-acid mu ~ Triangular(3, 9, 15) (IRENA 2017)",panels_regular,20469.8,20469.8,20469.8,20469.8,0.0,5288.9,5288.9,False
+S5b,life,"Lead-acid mu ~ Triangular(3, 9, 15) (IRENA 2017)",panels_early,89112.7,89112.7,89112.7,89112.7,0.0,11413.8,11413.8,False
+S5b,life,"Lead-acid mu ~ Triangular(3, 9, 15) (IRENA 2017)",850720,272082.6,252979.4,272334.0,272329.0,-0.1,487.6,0.0,True
+S5b,life,"Lead-acid mu ~ Triangular(3, 9, 15) (IRENA 2017)",850760,82883.4,82883.4,82883.4,82883.4,0.0,7532.1,7532.1,False
+S5b,life,"Lead-acid mu ~ Triangular(3, 9, 15) (IRENA 2017)",850440,151835.7,121895.5,153548.7,151835.7,0.0,1879.2,1879.2,False
+S5b,life,"Lead-acid mu ~ Triangular(3, 9, 15) (IRENA 2017)",850710,305864.8,305864.8,305864.8,305864.8,0.0,0.0,0.0,False
+S5c,life,"Lithium-ion mu ~ Triangular(5, 12, 20) (IRENA 2017)",panels_regular,20469.8,20469.8,20469.8,20469.8,0.0,5288.9,5288.9,False
+S5c,life,"Lithium-ion mu ~ Triangular(5, 12, 20) (IRENA 2017)",panels_early,89112.7,89112.7,89112.7,89112.7,0.0,11413.8,11413.8,False
+S5c,life,"Lithium-ion mu ~ Triangular(5, 12, 20) (IRENA 2017)",850720,272329.0,272303.3,272332.9,272329.0,0.0,0.0,0.0,False
+S5c,life,"Lithium-ion mu ~ Triangular(5, 12, 20) (IRENA 2017)",850760,89379.0,45923.2,104957.9,82883.4,7.8,6430.6,7532.1,True
+S5c,life,"Lithium-ion mu ~ Triangular(5, 12, 20) (IRENA 2017)",850440,151835.7,121895.5,153548.7,151835.7,0.0,1879.2,1879.2,False
+S5c,life,"Lithium-ion mu ~ Triangular(5, 12, 20) (IRENA 2017)",850710,305864.8,305864.8,305864.8,305864.8,0.0,0.0,0.0,False
+S6,life,Inverter mu fixed at 15 years (IEA-PVPS),panels_regular,20469.8,20469.8,20469.8,20469.8,0.0,5288.9,5288.9,False
+S6,life,Inverter mu fixed at 15 years (IEA-PVPS),panels_early,89112.7,89112.7,89112.7,89112.7,0.0,11413.8,11413.8,False
+S6,life,Inverter mu fixed at 15 years (IEA-PVPS),850720,272329.0,272303.3,272332.9,272329.0,0.0,0.0,0.0,False
+S6,life,Inverter mu fixed at 15 years (IEA-PVPS),850760,82883.4,82883.4,82883.4,82883.4,0.0,7532.1,7532.1,False
+S6,life,Inverter mu fixed at 15 years (IEA-PVPS),850440,116620.1,116620.1,116620.1,151835.7,-23.2,8810.5,1879.2,True
+S6,life,Inverter mu fixed at 15 years (IEA-PVPS),850710,305864.8,305864.8,305864.8,305864.8,0.0,0.0,0.0,False
+S7_k2,life,"Weibull shape k = 2 (batteries, inverters)",panels_regular,20469.8,20469.8,20469.8,20469.8,0.0,5288.9,5288.9,False
+S7_k2,life,"Weibull shape k = 2 (batteries, inverters)",panels_early,89112.7,89112.7,89112.7,89112.7,0.0,11413.8,11413.8,False
+S7_k2,life,"Weibull shape k = 2 (batteries, inverters)",850720,272215.1,272023.2,272263.2,272329.0,-0.0,0.0,0.0,True
+S7_k2,life,"Weibull shape k = 2 (batteries, inverters)",850760,75501.0,75501.0,75501.0,82883.4,-8.9,4660.6,7532.1,True
+S7_k2,life,"Weibull shape k = 2 (batteries, inverters)",850440,142275.1,112996.6,153433.2,151835.7,-6.3,3380.0,1879.2,True
+S7_k2,life,"Weibull shape k = 2 (batteries, inverters)",850710,305726.8,305726.8,305726.8,305864.8,-0.0,17.2,0.0,True
+S7_k6,life,"Weibull shape k = 6 (batteries, inverters)",panels_regular,20469.8,20469.8,20469.8,20469.8,0.0,5288.9,5288.9,False
+S7_k6,life,"Weibull shape k = 6 (batteries, inverters)",panels_early,89112.7,89112.7,89112.7,89112.7,0.0,11413.8,11413.8,False
+S7_k6,life,"Weibull shape k = 6 (batteries, inverters)",850720,272334.7,272334.0,272334.7,272329.0,0.0,0.0,0.0,True
+S7_k6,life,"Weibull shape k = 6 (batteries, inverters)",850760,94660.3,94660.3,94660.3,82883.4,14.2,9821.1,7532.1,True
+S7_k6,life,"Weibull shape k = 6 (batteries, inverters)",850440,153545.7,133027.5,153549.1,151835.7,1.1,67.3,1879.2,True
+S7_k6,life,"Weibull shape k = 6 (batteries, inverters)",850710,305868.5,305868.5,305868.5,305864.8,0.0,0.0,0.0,True
+S9,imports,Exclude the 2026 partial panel cohort,panels_regular,17712.5,17712.5,17712.5,20469.8,-13.5,4415.3,5288.9,True
+S9,imports,Exclude the 2026 partial panel cohort,panels_early,68209.0,68209.0,68209.0,89112.7,-23.5,8231.6,11413.8,True
+S9,imports,Exclude the 2026 partial panel cohort,850720,272329.0,272303.3,272332.9,272329.0,0.0,0.0,0.0,False
+S9,imports,Exclude the 2026 partial panel cohort,850760,82883.4,82883.4,82883.4,82883.4,0.0,7532.1,7532.1,False
+S9,imports,Exclude the 2026 partial panel cohort,850440,151835.7,121895.5,153548.7,151835.7,0.0,1879.2,1879.2,False
+S9,imports,Exclude the 2026 partial panel cohort,850710,305864.8,305864.8,305864.8,305864.8,0.0,0.0,0.0,False
+S10,imports,"Imports held at the 2025 level, 2026-2040 (sensitivity only)",panels_regular,23391.6,23391.6,23391.6,20469.8,14.3,6432.7,5288.9,True
+S10,imports,"Imports held at the 2025 level, 2026-2040 (sensitivity only)",panels_early,141714.1,141714.1,141714.1,89112.7,59.0,23525.0,11413.8,True
+S10,imports,"Imports held at the 2025 level, 2026-2040 (sensitivity only)",850720,460281.0,438127.8,482123.4,272329.0,69.0,16321.8,0.0,True
+S10,imports,"Imports held at the 2025 level, 2026-2040 (sensitivity only)",850760,227723.0,227723.0,227723.0,82883.4,174.8,39990.8,7532.1,True
+S10,imports,"Imports held at the 2025 level, 2026-2040 (sensitivity only)",850440,303152.1,184912.6,435139.7,151835.7,99.7,29243.8,1879.2,True
+S10,imports,"Imports held at the 2025 level, 2026-2040 (sensitivity only)",850710,389405.6,389405.6,389405.6,305864.8,27.3,8354.1,0.0,True
+S11,imports,Exclude pre-2018 lead-in cohorts,panels_regular,19176.0,19176.0,19176.0,20469.8,-6.3,5047.1,5288.9,True
+S11,imports,Exclude pre-2018 lead-in cohorts,panels_early,86811.4,86811.4,86811.4,89112.7,-2.6,11230.8,11413.8,True
+S11,imports,Exclude pre-2018 lead-in cohorts,850720,182970.0,182970.0,182970.0,272329.0,-32.8,0.0,0.0,True
+S11,imports,Exclude pre-2018 lead-in cohorts,850760,81248.1,81248.1,81248.1,82883.4,-2.0,7528.7,7532.1,True
+S11,imports,Exclude pre-2018 lead-in cohorts,850440,122379.1,92655.9,124092.4,151835.7,-19.4,1879.2,1879.2,True
+S11,imports,Exclude pre-2018 lead-in cohorts,850710,212435.3,212435.3,212435.3,305864.8,-30.5,0.0,0.0,True
+S15,timing,Start-of-year import timing,panels_regular,23616.3,23616.3,23616.3,20469.8,15.4,5949.3,5288.9,True
+S15,timing,Start-of-year import timing,panels_early,95073.2,95073.2,95073.2,89112.7,6.7,11754.4,11413.8,True
+S15,timing,Start-of-year import timing,850720,272269.8,271986.6,272314.1,272329.0,-0.0,0.0,0.0,True
+S15,timing,Start-of-year import timing,850760,86223.1,86223.1,86223.1,82883.4,4.0,6972.8,7532.1,True
+S15,timing,Start-of-year import timing,850440,152413.0,125783.9,153545.3,151835.7,0.4,1379.3,1879.2,True
+S15,timing,Start-of-year import timing,850710,305826.9,305826.9,305826.9,305864.8,-0.0,0.0,0.0,True
+S16,imports,Missing net weight left unfilled,panels_regular,20229.6,20229.6,20229.6,20469.8,-1.2,5239.6,5288.9,True
+S16,imports,Missing net weight left unfilled,panels_early,88583.8,88583.8,88583.8,89112.7,-0.6,11365.9,11413.8,True
+S16,imports,Missing net weight left unfilled,850720,268092.2,268080.9,268094.0,272329.0,-1.6,0.0,0.0,True
+S16,imports,Missing net weight left unfilled,850760,82836.4,82836.4,82836.4,82883.4,-0.1,7532.1,7532.1,True
+S16,imports,Missing net weight left unfilled,850440,148797.7,118862.1,150510.9,151835.7,-2.0,1879.2,1879.2,True
+S16,imports,Missing net weight left unfilled,850710,300704.7,300704.7,300704.7,305864.8,-1.7,0.0,0.0,True
+S21,imports,Add 2012-2016 panel cohorts (China 854140 x 2017 f_c; assumption),panels_regular,25002.7,25002.7,25002.7,20469.8,22.1,6001.3,5288.9,True
+S21,imports,Add 2012-2016 panel cohorts (China 854140 x 2017 f_c; assumption),panels_early,95430.9,95430.9,95430.9,89112.7,7.1,11843.4,11413.8,True
+S21,imports,Add 2012-2016 panel cohorts (China 854140 x 2017 f_c; assumption),850720,272329.0,272303.3,272332.9,272329.0,0.0,0.0,0.0,False
+S21,imports,Add 2012-2016 panel cohorts (China 854140 x 2017 f_c; assumption),850760,82883.4,82883.4,82883.4,82883.4,0.0,7532.1,7532.1,False
+S21,imports,Add 2012-2016 panel cohorts (China 854140 x 2017 f_c; assumption),850440,151835.7,121895.5,153548.7,151835.7,0.0,1879.2,1879.2,False
+S21,imports,Add 2012-2016 panel cohorts (China 854140 x 2017 f_c; assumption),850710,305864.8,305864.8,305864.8,305864.8,0.0,0.0,0.0,False
+S22,life,"Lithium-ion mu ~ U(5, 13) (partly unsourced)",panels_regular,20469.8,20469.8,20469.8,20469.8,0.0,5288.9,5288.9,False
+S22,life,"Lithium-ion mu ~ U(5, 13) (partly unsourced)",panels_early,89112.7,89112.7,89112.7,89112.7,0.0,11413.8,11413.8,False
+S22,life,"Lithium-ion mu ~ U(5, 13) (partly unsourced)",850720,272329.0,272303.3,272332.9,272329.0,0.0,0.0,0.0,False
+S22,life,"Lithium-ion mu ~ U(5, 13) (partly unsourced)",850760,104404.8,86260.0,104961.1,82883.4,26.0,970.7,7532.1,True
+S22,life,"Lithium-ion mu ~ U(5, 13) (partly unsourced)",850440,151835.7,121895.5,153548.7,151835.7,0.0,1879.2,1879.2,False
+S22,life,"Lithium-ion mu ~ U(5, 13) (partly unsourced)",850710,305864.8,305864.8,305864.8,305864.8,0.0,0.0,0.0,False
+S23,life,Panel Weibull scale calibrated to IRENA stated points,panels_regular,38534.9,38534.9,38534.9,20469.8,88.3,9723.0,5288.9,True
+S23,life,Panel Weibull scale calibrated to IRENA stated points,panels_early,96562.2,96562.2,96562.2,89112.7,8.4,12248.9,11413.8,True
+S23,life,Panel Weibull scale calibrated to IRENA stated points,850720,272329.0,272303.3,272332.9,272329.0,0.0,0.0,0.0,False
+S23,life,Panel Weibull scale calibrated to IRENA stated points,850760,82883.4,82883.4,82883.4,82883.4,0.0,7532.1,7532.1,False
+S23,life,Panel Weibull scale calibrated to IRENA stated points,850440,151835.7,121895.5,153548.7,151835.7,0.0,1879.2,1879.2,False
+S23,life,Panel Weibull scale calibrated to IRENA stated points,850710,305864.8,305864.8,305864.8,305864.8,0.0,0.0,0.0,False

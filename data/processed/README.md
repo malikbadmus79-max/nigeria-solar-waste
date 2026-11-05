@@ -19,4 +19,10 @@ These values are published under the small-extract exemption described in `docs/
 | `imports_leadacid_850710.csv` | All columns except `year`, `hs`, `partial` | none |
 | `imports_lithiumion_850760.csv` | All columns except `year`, `hs`, `partial` | none |
 | `imports_converters_850440.csv` | All columns except `year`, `hs`, `partial` | none |
+| `rq1_imports.csv` | All tonne columns (main series and alternatives) | Ember (CC BY 4.0): `ember_china_t`, panel MW columns |
+| `rq1_gap.csv` | All values (Nigeria-reported vs partner-reported) | Ember: panel partner-reported values include Ember China |
+| `rq2_waste_annual.csv`, `rq2_waste_cumulative.csv` | Locked-in waste, computed from Comtrade-derived import cohorts | Ember (panels); lifetimes as cited in `parameters.json` |
+| `rq2_waste_annual_s10.csv`, `rq2_waste_cumulative_s10.csv` | Continuing-imports scenario (S10), computed from Comtrade-derived cohorts | as above |
+| `rq2_rq4_leadacid_inputs.csv` | 2025 lead-acid waste (850720, 850710), computed from Comtrade-derived cohorts | none |
+| `rq2_sensitivities.csv` | All runs, computed from Comtrade-derived cohorts | Ember (panels) |
 | `parameters.json` (frozen) | `imports.S21_panels_2012_2016.f_c_2017` (ratio of Ember to Comtrade China-reported mass) | IRENA, IEA-PVPS, ESMAP, GIZ, Ogundele et al. 2020, Sphera/BCI 2023, World Bank (CC BY 4.0), GEM 2024, GOGLA: as cited in the file |

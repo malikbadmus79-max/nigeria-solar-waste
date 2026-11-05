@@ -65,7 +65,7 @@ def fill_mass(records: list[dict], ratio: dict) -> list[dict]:
     for r in records:
         kg, usd = _f(r["netWgt"]), _f(r["primaryValue"]) or 0.0
         filled = False
-        if not kg and usd > 0:
+        if not kg and usd > 0 and FILL_MISSING:
             pool = ratio.get((r["cmdCode"], r["refYear"]))
             kg = statistics.median(pool) * usd if pool else 0.0
             filled = True
@@ -75,6 +75,9 @@ def fill_mass(records: list[dict], ratio: dict) -> list[dict]:
 
 
 _POOL: dict = {}
+
+# Sensitivity S16 (plan §8): set to False to leave missing net weight unfilled (zero mass).
+FILL_MISSING = True
 
 
 def aggregate(rows: list[dict], query: str, code: str) -> dict[int, dict]:

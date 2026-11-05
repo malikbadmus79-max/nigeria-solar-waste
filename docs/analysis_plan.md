@@ -1,10 +1,10 @@
 # Analysis plan
 
 Project: *The solar boom's hidden bill: Nigeria's coming wave of solar panel and battery waste*
-Status: Phase 1a. Written 2026-11-05 before any modelling; amended 2026-11-05 (Amendments A1 and A2 before the freeze; A3 at the freeze; A4 after the freeze, publication terms only). Parameters frozen 2026-11-05 (§10.2).
+Status: Phase 1a. Written 2026-11-05 before any modelling; amended 2026-11-05 (Amendments A1 and A2 before the freeze; A3 at the freeze; A4 after the freeze, publication terms only; A5 post-results, reporting change only). Parameters frozen 2026-11-05 (§10.2).
 Inputs: `docs/phase0_results.md` (cited as "P0 §n") and `data/interim/phase0_sources.csv` (source IDs S01-S22).
 
-This plan fixes the questions, data choices, assumptions, uncertainty treatment, sensitivities and checks before any estimate is produced. Sections changed by an amendment are marked **[A1]** to **[A4]**. The original wording of each changed item is summarised in the Amendments section. Figures quoted here are inputs taken from sources, not results.
+This plan fixes the questions, data choices, assumptions, uncertainty treatment, sensitivities and checks before any estimate is produced. Sections changed by an amendment are marked **[A1]** to **[A5]**. The original wording of each changed item is summarised in the Amendments section. Figures quoted here are inputs taken from sources, not results.
 
 **Scope [A1].** The study covers solar and backup-power equipment: PV panels, lead-acid batteries other than starter batteries (850720), lithium-ion batteries (850760) and static converters (850440). Main results use the full traded volume of each code.
 
@@ -600,3 +600,16 @@ Decision by the project lead. Frozen parameters unchanged: `data/processed/param
 
 1. `data/interim/phase0_comtrade_availability.csv` (1,619 records) and the single-reporter columns in published files are kept and published under the Comtrade small-extract exemption (§12). The `.gitignore` line that excluded the availability file is removed. The 2012-2017 record-level file stays excluded.
 2. The exact attribution "Source: UN Comtrade." with the licence URL is added to `README.md`, to companion notes `data/interim/README.md` and `data/processed/README.md` (now tracked), to the header notes of `docs/phase0_results.md` and `docs/phase1b_results.md`, and to §12.
+
+### A5 (2026-11-05, post-results; reporting change only)
+
+Decision by the project lead after Phase 2 results. **No frozen parameter or model specification changed**: `data/processed/parameters.json` keeps the SHA-256 in §10.2, and the main series is unchanged.
+
+1. **Two series.** RQ2 waste is reported in two series side by side, for every product, in tables and figures:
+   - (a) "locked-in waste" (equipment imported to date; the main result, a lower bound);
+   - (b) "continuing imports at the 2025 level", the existing sensitivity S10 (§2.8), labelled as a scenario, not a forecast.
+
+   Every annual table and figure carries a sentence explaining that (a) declines because it includes no future imports. This changes the reporting of S10 only. S10 remains a sensitivity in the specification (§2.8, §7).
+2. **RQ4 inputs.** Annual lead-acid waste in 2025 (850720, 850710 and their per-draw sum) is reported as an input to RQ4, with no comparison to capacity at this stage (`data/processed/rq2_rq4_leadacid_inputs.csv`).
+3. **Tracked outputs.** Phase 2 summary outputs (`data/processed/rq1_*.csv`, `rq2_*.csv`) and `figures/` are tracked. Per-draw outputs (`*_draws*`, `*.npy`, `*.npz`) stay ignored. The UN Comtrade attribution ("Source: UN Comtrade.", with licence URL) is added to `figures/README.md` and to the companion notes for the new files (§12).
+

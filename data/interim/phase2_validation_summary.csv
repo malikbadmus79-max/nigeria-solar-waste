@@ -1,0 +1,10 @@
+check,result,passed
+frozen parameters,parameters.json matches SHA-256 in plan §10.2,True
+V1 Ember vs Comtrade China,2025 exact: True; 2017-2024 differences listed in phase1b_validation_v1.csv,True
+"V2 mass balance (unit cohorts and real cohorts, every draw)",waste+stock=imports; cumulative waste <= cumulative imports in every year and draw,True
+V3 recomputation of IRENA points and GIZ totals,"IRENA stated points not reproduced (reported, not corrected); GIZ totals reproduced within 2 t",True
+V4 full rerun with fixed seed,output hash a2f2624123dedecb -> a2f2624123dedecb,True
+V5 mirror rebuild,mismatched cells 0,True
+V6 panel W/kg vs IRENA,years outside 0.5-2x: [],True
+V8 estimated/filled mass shares,70 product-years tabulated,True
+Independent recomputation (recompute.py),max abs diff 0.0373 t (rounding),True

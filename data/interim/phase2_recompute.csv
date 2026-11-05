@@ -1,0 +1,9 @@
+product,recomputed_cum_median_t,published_cum_median_t,abs_diff_t,pass
+panels_regular,20469.8,20469.8,0.025,True
+panels_early,89112.7,89112.7,0.016,True
+850720,272329.0,272329.0,0.037,True
+850760,82883.4,82883.4,0.031,True
+850440,151835.7,151835.7,0.028,True
+850710,305864.8,305864.8,0.008,True
+batteries_850720_850760,355212.3,355212.3,0.032,True
+ALL annual percentiles,,,0.0373,True

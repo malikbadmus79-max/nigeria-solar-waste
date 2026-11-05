@@ -1,0 +1,7 @@
+product,draws,max_rel_error_balance,max_excess_cum_waste_over_cum_imports_kg,balance_pass,never_exceeds_pass
+panels_regular,1,0.0,0.0,True,True
+panels_early,1,1.3511845458314568e-16,0.0,True,True
+850720,10000,6.565961606513462e-16,1.7881393432617188e-07,True,True
+850760,10000,1.4196841300924892e-16,-28106.85229209216,True,True
+850440,10000,5.822694126673422e-16,8.940696716308594e-08,True,True
+850710,10000,1.9487017021154503e-16,-5.960464477539063e-08,True,True

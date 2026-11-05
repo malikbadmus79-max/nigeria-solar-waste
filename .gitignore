@@ -8,6 +8,13 @@ data/processed/*
 !data/processed/parameters.json
 !data/processed/imports_*.csv
 !data/processed/README.md
+# Phase 2 summary outputs are tracked (Amendment A5); all are under 15 kB.
+!data/processed/rq1_*.csv
+!data/processed/rq2_*.csv
+# Large per-draw Monte Carlo outputs are never tracked (none are written at present).
+data/processed/*_draws*
+*.npy
+*.npz
 
 # Python
 __pycache__/
